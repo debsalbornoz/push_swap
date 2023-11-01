@@ -8,7 +8,7 @@ int max_int(char **argv);
 int verify(int argc, char **argv)
 {
     int i;
-    i = 1;
+    i = 1; 
     if(arguments(argc) == 1)
         return(1);
     while(argv[i] != NULL)

@@ -16,6 +16,10 @@
 
 #include "libft/libft.h"
 
+typedef struct linked_list{
+    int value;
+    struct linked_list  *next;
+} node ;
 
 int arguments_number(int argc);
 int is_number(char *s);

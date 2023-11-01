@@ -14,10 +14,8 @@
 
 static size_t	count_words(char const *s, char c)
 {
-	size_t	i;
 	size_t	count;
 
-	i = 0;
 	count = 0;
 	if (*s != c && *s != '\0')
 		count++;

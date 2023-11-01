@@ -2,7 +2,7 @@ CC = cc
 CFLAGS = -g3 -Wall -Wextra -Werror
 
 
-SRCS = 
+SRCS = main.c verify.c
 OBJ = $(SRCS:.c=.o)
 NAME = push_swap
 LIBFT_DIR = ./libft

@@ -14,6 +14,10 @@
 
 # define PUSH_SWAP_H 
 
-# include "libft.h"
+#include "libft/libft.h"
+
+int arguments_number(int argc);
+int is_number(char *s);
+int verify(int argc, char **argv);
 
 #endif

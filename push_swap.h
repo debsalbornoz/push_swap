@@ -16,8 +16,11 @@
 
 #include "libft/libft.h"
 
+
 int arguments_number(int argc);
 int is_number(char *s);
 int verify(int argc, char **argv);
+int duplicates(char **argv);
+int max_int(char **argv);
 
 #endif

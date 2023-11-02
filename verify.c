@@ -71,6 +71,8 @@ int is_number(char *s)
     i = 0;
     while(s[i] != '\0')
     {
+        if(s[i] == '+' || s[i] == '-')
+            i++;
         if(ft_isdigit(s[i]) == 0)
         {
             ft_printf("The arguments should be only digits\n");
@@ -86,14 +88,15 @@ int max_int(char **argv)
 {
     int i;
     long long int_max;
-
+    long long int_min;
     i = 1;
-    int_max = 2147483647;
+    int_max = INT_MAX;
+    int_min = INT_MIN;
     while (argv[i] != NULL)
     {
-        if (ft_custom_atoi(argv[i]) >= int_max)
+        if (ft_custom_atoi(argv[i]) >= int_max || ft_custom_atoi(argv[i]) <= int_min)
         {
-        ft_printf("Argument equal or greater than an int\n");
+        ft_printf("Argument equal or greater than the max int\n");
         return 1;
         }
         i++;

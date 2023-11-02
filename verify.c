@@ -1,4 +1,5 @@
 #include "push_swap.h"
+#include <limits.h>
 
 int arguments(int argc);
 int is_number(char *s);
@@ -21,34 +22,6 @@ int verify(int argc, char **argv)
         return(1);
     return(0);
 }
-
-int arguments(int argc)
-{
-    if(argc == 2)
-    {
-        ft_printf("The program expects more than one argument to sort the stack\n");
-        return(1);
-    }
-    return(0);
-}
-
-int is_number(char *s)
-{
-    int i;
-    
-    i = 0;
-    while(s[i] != '\0')
-    {
-        if(ft_isdigit(s[i]) == 0)
-        {
-            ft_printf("The arguments should be only digits\n");
-            return(1);
-        }
-        i++;      
-    }
-    return(0);
-}
-
 
 int duplicates(char **argv)
 {
@@ -80,19 +53,50 @@ int duplicates(char **argv)
     return(0);
 }
 
+
+int arguments(int argc)
+{
+    if(argc == 2)
+    {
+        ft_printf("The program expects more than one argument to sort the stack\n");
+        return(1);
+    }
+    return(0);
+}
+
+int is_number(char *s)
+{
+    int i;
+    
+    i = 0;
+    while(s[i] != '\0')
+    {
+        if(ft_isdigit(s[i]) == 0)
+        {
+            ft_printf("The arguments should be only digits\n");
+            return(1);
+        }
+        i++;      
+    }
+    return(0);
+}
+
+
 int max_int(char **argv)
 {
     int i;
+    long long int_max;
 
     i = 1;
-    while(argv[i] != NULL)
+    int_max = 2147483647;
+    while (argv[i] != NULL)
     {
-        if( ft_atoi(argv[i]) >= __INT_MAX__)
+        if (ft_custom_atoi(argv[i]) >= int_max)
         {
-            ft_printf("Argument equal or greater than an int\n");
-            return(1);
+        ft_printf("Argument equal or greater than an int\n");
+        return 1;
         }
         i++;
     }
-    return(0);
+    return 0;
 }

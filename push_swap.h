@@ -15,6 +15,7 @@
 # define PUSH_SWAP_H 
 
 #include "libft/libft.h"
+#include <limits.h>
 
 typedef struct linked_list{
     int value;
@@ -26,5 +27,6 @@ int is_number(char *s);
 int verify(int argc, char **argv);
 int duplicates(char **argv);
 int max_int(char **argv);
+long int ft_custom_atoi(const char *nptr);
 
 #endif

@@ -24,7 +24,7 @@ node    *create_node(int value){
     p->next= l->begin;
     l->begin = p;
 
-    if(l->begin == NULL)
+    if(l->begin == NULL && l->end == NULL)
     {
         l->end = p;
     }

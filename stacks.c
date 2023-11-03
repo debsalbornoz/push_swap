@@ -21,17 +21,14 @@ node    *create_node(int value){
     node    *p;
 
     p = create_node(value);
+    p->next= l->begin;
+    l->begin = p;
 
     if(l->begin == NULL)
     {
-        l->begin = p;
         l->end = p;
     }
-    else
-    {
-    p->next= l->begin;
-    l->begin = p;
-    }
+
 
  }
 

@@ -17,16 +17,29 @@
 #include "libft/libft.h"
 #include <limits.h>
 
-typedef struct linked_list{
+typedef struct node{
     int value;
-    struct linked_list  *next;
-} node ;
+    struct  node *next;
+} node;
+
+typedef struct linked_list{
+
+    node *begin;
+    node *end;
+} linked_list;
 
 int arguments_number(int argc);
 int is_number(char *s);
 int verify(int argc, char **argv);
 int duplicates(char **argv);
 int max_int(char **argv);
-long int ft_custom_atoi(const char *nptr);
+long long ft_custom_atoi(const char *nptr);
+linked_list *create_linked_list();
+node    *create_node(int value);
+void  add_first(linked_list *l, int value);
+ void print_list(linked_list *l);
+void    create_stacka(linked_list *l, char **argv);
+ void  add_last(linked_list *l, int value);
+void    create_stackb(linked_list *l, char **argv);
 
 #endif

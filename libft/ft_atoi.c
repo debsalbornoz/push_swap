@@ -39,10 +39,10 @@ int	ft_atoi(const char *nptr)
 	return (result * sign);
 }
 
-long int	ft_custom_atoi(const char *nptr)
+long long int ft_custom_atoi(const char *nptr)
 {
-	long int	result;
-	long int	sign;
+	long long	result;
+	long long	sign;
 
 	result = 0;
 	sign = 1;

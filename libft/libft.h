@@ -76,5 +76,5 @@ int		count_hexadecimal(unsigned long int nbr);
 int		ft_hexadecimal(unsigned int n, char *base, unsigned int base_len);
 int		count_base10(int nbr);
 int		ft_putnbr(long int n);
-
+long long int	ft_custom_atoi(const char *nptr);
 #endif

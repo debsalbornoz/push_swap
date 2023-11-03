@@ -87,8 +87,8 @@ int is_number(char *s)
 int max_int(char **argv)
 {
     int i;
-    long long int_max;
-    long long int_min;
+    long long int int_max;
+    long long int int_min;
     i = 1;
     int_max = INT_MAX;
     int_min = INT_MIN;

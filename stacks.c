@@ -22,12 +22,12 @@ node    *create_node(int value){
 
     p = create_node(value);
     p->next= l->begin;
-    l->begin = p;
 
     if(l->begin == NULL && l->end == NULL)
     {
         l->end = p;
     }
+     l->begin = p;
 
 
  }

@@ -44,4 +44,6 @@ void    create_stacka(linked_list *l, char **argv);
  void  add_last(linked_list *l, int value);
 void    create_stackb(linked_list *l, char **argv);
 void destroy_linked_list(linked_list **l_ref);
+int list_is_empty(const linked_list *l);
+
 #endif

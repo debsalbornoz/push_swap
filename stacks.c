@@ -2,17 +2,20 @@
 
  void  add_first(linked_list *l, int value)
  {
-    node    *p;
-
-    p = create_node(value);
-    p->next= l->begin;
-
-    if(l->begin == NULL && l->end == NULL)
+    if(list_is_empty(l))
     {
+        node *p = create_node(value);
+        l->begin = p;
         l->end = p;
+        l->size++;
     }
-     l->begin = p;
-
+    else {
+        node *p = create_node(value);
+        p->next = l->begin;
+        l->begin->prev = p;
+        l->begin = p;
+        l->size++;
+    }
 
  }
 

@@ -33,3 +33,12 @@ void destroy_linked_list(linked_list **l_ref)
     free(l);
     *l_ref= NULL;
 }
+
+int list_is_empty(const linked_list *l)
+{
+    if((l->size == 0) && (l->begin == NULL) && (l->end == NULL))
+        return(1);
+    else
+        return(0);
+
+}

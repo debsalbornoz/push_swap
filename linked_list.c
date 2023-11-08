@@ -80,6 +80,7 @@ void    remove_node(linked_list  *l, int value)
                     
                 }
                 free(p);
+                p = NULL;
                 l->size--;
                 else
                 {

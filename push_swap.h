@@ -19,6 +19,7 @@
 
 typedef struct node{
     int value;
+    struct node *prev;
     struct  node *next;
 } node;
 
@@ -26,6 +27,7 @@ typedef struct linked_list{
 
     node *begin;
     node *end;
+    size_t  size;
 } linked_list;
 
 int arguments_number(int argc);
@@ -41,5 +43,5 @@ void  add_first(linked_list *l, int value);
 void    create_stacka(linked_list *l, char **argv);
  void  add_last(linked_list *l, int value);
 void    create_stackb(linked_list *l, char **argv);
-
+void destroy_linked_list(linked_list **l_ref);
 #endif

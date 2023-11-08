@@ -47,21 +47,19 @@ void    remove_node(linked_list  *l, int value)
 {
     if(!list_is_empty(l))
     {
-        
         if(l->begin->value == value)
         {
             node *p = l->begin;
             l->begin = p->next;
-        
-        if(l->end == p)
-            l->end = NULL;
-        else
-            l->begin->prev = NULL;
-        free(p);
-        l->size--;
+            if(l->end == p)
+                l->end = NULL;
+            else
+                l->begin->prev = NULL;
+            free(p);
+            l->size--;
         }
         else
-         {
+        {
             node *p = l->begin->next;
             while(p != NULL)
             {
@@ -75,17 +73,13 @@ void    remove_node(linked_list  *l, int value)
                     else {
                         p->prev->next = p->next;
                         p->next->prev = p->prev;
-
                     }
-                    
                 }
                 free(p);
                 p = NULL;
                 l->size--;
                 else
-                {
                     p = p->next;
-                }
             }
         }
     }

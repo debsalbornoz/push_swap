@@ -42,3 +42,49 @@ int list_is_empty(const linked_list *l)
         return(0);
 
 }
+
+void    remove_node(linked_list  *l, int value)
+{
+    if(!list_is_empty(l))
+    {
+        
+        if(l->begin->value == value)
+        {
+            node *p = l->begin;
+            l->begin = p->next;
+        
+        if(l->end == p)
+            l->end = NULL;
+        else
+            l->begin->prev = NULL;
+        free(p);
+        l->size--;
+        }
+        else
+         {
+            node *p = l->begin->next;
+            while(p != NULL)
+            {
+                if(p->value == value)
+                {
+                    if(l->end == p )
+                    {
+                        l->end = p->prev;
+                        l->end->next = NULL;
+                    }
+                    else {
+                        p->prev->next = p->next;
+                        p->next->prev = p->prev;
+                        free(p);
+                        l->size--;
+                    }
+                    
+                }
+                else
+                {
+                    p = p->next;
+                }
+            }
+        }
+    }
+}

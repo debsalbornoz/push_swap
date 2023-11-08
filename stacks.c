@@ -2,20 +2,14 @@
 
  void  add_first(linked_list *l, int value)
  {
+    node *p = create_node(value);
+    p->next = l->begin;
     if(list_is_empty(l))
-    {
-        node *p = create_node(value);
-        l->begin = p;
         l->end = p;
-        l->size++;
-    }
-    else {
-        node *p = create_node(value);
-        p->next = l->begin;
+    else
         l->begin->prev = p;
-        l->begin = p;
-        l->size++;
-    }
+    l->begin = p;
+     l->size++;
 
  }
 
@@ -44,13 +38,14 @@
  void add_last(linked_list *l, int value) {
     
     node    *q = create_node(value);
-    if (l->begin == NULL) {
-      l->begin = q;
-      l->end = q;
-    } else {
+    if (list_is_empty(l))
+        l->begin = q;
+    else {
      l->end->next = q;
-     l->end = l->end->next;
+     q->prev = l->end;
     }
+    l->end = q;
+    l->size++;
  }
 
 void create_stackb(linked_list *l, char **argv) {

@@ -71,6 +71,8 @@ void    remove_node(linked_list  *l, int value)
                     {
                         l->end = p->prev;
                         l->end->next = NULL;
+                        free(p);
+                        l->size--;
                     }
                     else {
                         p->prev->next = p->next;

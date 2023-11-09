@@ -6,15 +6,15 @@
 /*   By: dlamark- <dlamark-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 20:37:24 by dlamark-          #+#    #+#             */
-/*   Updated: 2023/11/08 20:37:39 by dlamark-         ###   ########.fr       */
+/*   Updated: 2023/11/08 21:13:56 by dlamark-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	add_first(linked_list *l, int value)
+void	add_first(t_linked_list *l, int value)
 {
-	node	*p;
+	t_node	*p;
 
 	p = create_node(value);
 	p->next = l->begin;
@@ -26,9 +26,9 @@ void	add_first(linked_list *l, int value)
 	l->size++;
 }
 
-void	print_list(linked_list *l)
+void	print_list(t_linked_list *l)
 {
-	node	*p;
+	t_node	*p;
 
 	p = l->begin;
 	while (p != NULL)
@@ -38,7 +38,7 @@ void	print_list(linked_list *l)
 	}
 }
 
-void	create_stacka(linked_list *l, char **argv)
+void	create_stacka(t_linked_list *l, char **argv)
 {
 	int	i;
 
@@ -51,9 +51,9 @@ void	create_stacka(linked_list *l, char **argv)
 	print_list(l);
 }
 
-void	add_last(linked_list *l, int value)
+void	add_last(t_linked_list *l, int value)
 {
-	node	*q;
+	t_node	*q;
 
 	q = create_node(value);
 	if (list_is_empty(l))
@@ -67,7 +67,7 @@ void	add_last(linked_list *l, int value)
 	l->size++;
 }
 
-void	create_stackb(linked_list *l, char **argv)
+void	create_stackb(t_linked_list *l, char **argv)
 {
 	int	i;
 

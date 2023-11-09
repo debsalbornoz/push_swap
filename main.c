@@ -6,7 +6,7 @@
 /*   By: dlamark- <dlamark-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 20:36:19 by dlamark-          #+#    #+#             */
-/*   Updated: 2023/11/08 20:36:22 by dlamark-         ###   ########.fr       */
+/*   Updated: 2023/11/08 21:28:00 by dlamark-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(int argc, char **argv)
 {
-	linked_list	*l;
+	t_linked_list	*l;
 
 	l = create_linked_list();
 	if (argc == 1)

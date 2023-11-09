@@ -6,7 +6,7 @@
 /*   By: dlamark- <dlamark-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 13:04:00 by dlamark-          #+#    #+#             */
-/*   Updated: 2023/05/13 19:05:17 by dlamark-         ###   ########.fr       */
+/*   Updated: 2023/11/08 21:20:06 by dlamark-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ int	ft_atoi(const char *nptr)
 	return (result * sign);
 }
 
-long long int ft_custom_atoi(const char *nptr)
+long int	ft_custom_atoi(const char *nptr)
 {
-	long long	result;
-	long long	sign;
+	long int	result;
+	long int	sign;
 
 	result = 0;
 	sign = 1;

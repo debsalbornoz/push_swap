@@ -55,7 +55,7 @@ void	add_last(t_stack *l, int value)
 	l->size++;
 }
 
-void	create_stacka(t_stack *l, char **argv)
+void	create_stack_a(t_stack *l, char **argv)
 {
 	int	i;
 

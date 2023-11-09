@@ -44,3 +44,9 @@ void    swap(t_stack* l)
     l->begin->value = l->begin->next->value;
     l->begin->next->value = aux;
 }
+
+void ss(t_stack* a, t_stack* b)
+{
+    swap(a);
+    swap(b);
+}

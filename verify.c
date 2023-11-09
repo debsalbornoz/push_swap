@@ -18,13 +18,12 @@ int	is_number(char *s);
 int	duplicates(char **argv);
 int	max_int(char **argv);
 
-int	verify(int argc, char **argv)
+int	verify(char **argv)
 {
 	int	i;
 
 	i = 1;
-	if (arguments(argc) == 1)
-		return (1);
+
 	while (argv[i] != NULL)
 	{
 		if (is_number(argv[i]) == 1)
@@ -62,13 +61,6 @@ int	duplicates(char **argv)
 			j = i + 1;
 		}
 	}
-	return (0);
-}
-
-int	arguments(int argc)
-{
-	if (argc == 2)
-		return (1);
 	return (0);
 }
 

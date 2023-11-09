@@ -35,7 +35,7 @@ typedef struct s_stack
 
 int					arguments_number(int argc);
 int					is_number(char *s);
-int					verify(int argc, char **argv);
+int					verify(char **argv);
 int					duplicates(char **argv);
 int					max_int(char **argv);
 long				ft_custom_atoi(const char *nptr);
@@ -43,11 +43,12 @@ t_stack				*create_stack(void);
 t_node				*create_node(int value);
 void				add_first(t_stack *l, int value);
 void				print_list(t_stack *l);
-void				create_stacka(t_stack *l, char **argv);
+void				create_stack_a(t_stack *l, char **argv);
 void				add_last(t_stack *l, int value);
 void				create_stackb(t_stack *l, char **argv);
 void				destroy_stack(t_stack **l_ref);
 int					list_is_empty(const t_stack *l);
-void    swap(t_stack* l);
+void    			swap(t_stack* l);
+void 				ss(t_stack* a, t_stack* b);
 
 #endif

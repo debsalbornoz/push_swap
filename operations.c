@@ -11,11 +11,7 @@
 /* ************************************************************************** */
 
 /*
-sa (swap a): Swap the first 2 elements at the top of stack a.
-Do nothing if there is only one or no elements.
-sb (swap b): Swap the first 2 elements at the top of stack b.
-Do nothing if there is only one or no elements.
-ss : sa and sb at the same time.
+
 pa (push a): Take the first element at the top of b and put it at the top of a.
 Do nothing if b is empty.
 pb (push b): Take the first element at the top of a and put it at the top of b.
@@ -49,4 +45,21 @@ void ss(t_stack* a, t_stack* b)
 {
     swap(a);
     swap(b);
+}
+
+void push(t_stack *l, t_stack *m)
+{
+    t_node *aux;
+    t_node *aux2;
+
+    aux = l->begin;
+    aux2 = m->begin;
+
+    l->begin = m->begin;
+    l->begin->next = aux->next;
+    l->begin->prev = NULL; 
+    m->begin = aux;
+    m->begin->next = aux->next;
+    free(aux);
+    free(aux2);
 }

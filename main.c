@@ -28,7 +28,7 @@ int	main(int argc, char **argv)
 	}
 	create_stack_a(a, argv);
 	create_stack_a(b,argv);
-	ss(a,b);
+	push(a,b);
 	print_list(a);
 	print_list(b);
 	destroy_stack(&a);

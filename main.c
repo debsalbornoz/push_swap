@@ -14,9 +14,11 @@
 
 int	main(int argc, char **argv)
 {
-	t_linked_list	*l;
+	t_stack	*a;
+	t_stack	*b;
 
-	l = create_linked_list();
+	a = create_stack();
+	b = create_stack();
 	if (argc == 1)
 		exit(1);
 	if (verify(argc, argv) == 1)
@@ -24,7 +26,11 @@ int	main(int argc, char **argv)
 		ft_printf("Error\n");
 		exit(1);
 	}
-	create_stackb(l, argv);
-	destroy_linked_list(&l);
+	create_stacka(a, argv);
+	create_stacka(b,argv);
+	swap(a);
+	swap(b);
+	print_list(b);
+	destroy_stack(&a);
 	return (0);
 }

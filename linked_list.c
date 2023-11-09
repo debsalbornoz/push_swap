@@ -12,11 +12,11 @@
 
 #include "push_swap.h"
 
-t_linked_list	*create_linked_list(void)
+t_stack	*create_stack(void)
 {
-	t_linked_list	*l;
+	t_stack	*l;
 
-	l = (t_linked_list *)ft_calloc(1, sizeof(t_linked_list));
+	l = (t_stack *)ft_calloc(1, sizeof(t_stack));
 	l->begin = NULL;
 	l->end = NULL;
 	l->size = 0;
@@ -34,9 +34,9 @@ t_node	*create_node(int value)
 	return (node);
 }
 
-void	destroy_linked_list(t_linked_list **l_ref)
+void	destroy_stack(t_stack **l_ref)
 {
-	t_linked_list	*l;
+	t_stack	*l;
 	t_node			*p;
 	t_node			*aux;
 
@@ -53,7 +53,7 @@ void	destroy_linked_list(t_linked_list **l_ref)
 	*l_ref = NULL;
 }
 
-int	list_is_empty(const t_linked_list *l)
+int	list_is_empty(const t_stack *l)
 {
 	if ((l->size == 0) && (l->begin == NULL) && (l->end == NULL))
 		return (1);

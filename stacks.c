@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	add_first(t_linked_list *l, int value)
+void	add_first(t_stack *l, int value)
 {
 	t_node	*p;
 
@@ -26,7 +26,7 @@ void	add_first(t_linked_list *l, int value)
 	l->size++;
 }
 
-void	print_list(t_linked_list *l)
+void	print_list(t_stack *l)
 {
 	t_node	*p;
 
@@ -36,22 +36,10 @@ void	print_list(t_linked_list *l)
 		ft_printf("%i\n", p->value);
 		p = p->next;
 	}
+	write(1,"\n",1);
 }
 
-void	create_stacka(t_linked_list *l, char **argv)
-{
-	int	i;
-
-	i = 1;
-	while (argv[i] != NULL)
-	{
-		add_first(l, atoi(argv[i]));
-		i++;
-	}
-	print_list(l);
-}
-
-void	add_last(t_linked_list *l, int value)
+void	add_last(t_stack *l, int value)
 {
 	t_node	*q;
 
@@ -67,7 +55,7 @@ void	add_last(t_linked_list *l, int value)
 	l->size++;
 }
 
-void	create_stackb(t_linked_list *l, char **argv)
+void	create_stacka(t_stack *l, char **argv)
 {
 	int	i;
 

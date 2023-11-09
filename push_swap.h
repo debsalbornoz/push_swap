@@ -26,12 +26,12 @@ typedef struct s_node
 	struct s_node	*next;
 }					t_node;
 
-typedef struct s_linked_list
+typedef struct s_stack
 {
 	t_node			*begin;
 	t_node			*end;
 	size_t			size;
-}					t_linked_list;
+}					t_stack;
 
 int					arguments_number(int argc);
 int					is_number(char *s);
@@ -39,14 +39,15 @@ int					verify(int argc, char **argv);
 int					duplicates(char **argv);
 int					max_int(char **argv);
 long				ft_custom_atoi(const char *nptr);
-t_linked_list		*create_linked_list(void);
+t_stack				*create_stack(void);
 t_node				*create_node(int value);
-void				add_first(t_linked_list *l, int value);
-void				print_list(t_linked_list *l);
-void				create_stacka(t_linked_list *l, char **argv);
-void				add_last(t_linked_list *l, int value);
-void				create_stackb(t_linked_list *l, char **argv);
-void				destroy_linked_list(t_linked_list **l_ref);
-int					list_is_empty(const t_linked_list *l);
+void				add_first(t_stack *l, int value);
+void				print_list(t_stack *l);
+void				create_stacka(t_stack *l, char **argv);
+void				add_last(t_stack *l, int value);
+void				create_stackb(t_stack *l, char **argv);
+void				destroy_stack(t_stack **l_ref);
+int					list_is_empty(const t_stack *l);
+void    swap(t_stack* l);
 
 #endif

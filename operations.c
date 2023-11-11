@@ -6,7 +6,7 @@
 /*   By: dlamark- <dlamark-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 21:31:56 by dlamark-          #+#    #+#             */
-/*   Updated: 2023/11/11 14:51:35 by dlamark-         ###   ########.fr       */
+/*   Updated: 2023/11/11 17:01:16 by dlamark-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,22 @@ rrr : rra and rrb at the same time
 
 #include "push_swap.h"
 
-void	swap(t_stack *l)
+void	swap(t_stack *src)
 {
 	int	aux;
 
-	if (l->size <= 1)
+	if (src->size <= 1)
 		return ;
-	aux = l->begin->value;
-	l->begin->value = l->begin->next->value;
-	l->begin->next->value = aux;
+	aux = src->begin->value;
+	src->begin->value = src->begin->next->value;
+	src->begin->next->value = aux;
 }
 
 void	ss(t_stack *a, t_stack *b)
 {
 	swap(a);
 	swap(b);
+	ft_printf("ss");
 }
 
 void	push(t_stack *src, t_stack *dest)
@@ -61,4 +62,20 @@ void	push(t_stack *src, t_stack *dest)
 	p_dest->prev = p_src;
 	src->size--;
 	dest->size++;
+}
+
+void	rotate(t_stack *src)
+{
+	t_node	*p_begin;
+	t_node	*p_end;
+	t_node	*p_begin_next;
+
+	p_begin = src->begin;
+	p_end = src->end;
+	p_begin_next = src->begin->next;
+	src->end = p_begin;
+	src->end->next = NULL;
+	src->end->prev = p_end;
+	src->begin = p_begin_next;
+	src->begin->prev = NULL;
 }

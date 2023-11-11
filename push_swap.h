@@ -6,7 +6,7 @@
 /*   By: dlamark- <dlamark-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 21:04:12 by dlamark-          #+#    #+#             */
-/*   Updated: 2023/11/08 21:28:54 by dlamark-         ###   ########.fr       */
+/*   Updated: 2023/11/11 16:46:09 by dlamark-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,9 @@ void				add_last(t_stack *l, int value);
 void				create_stackb(t_stack *l, char **argv);
 void				destroy_stack(t_stack **l_ref);
 int					list_is_empty(const t_stack *l);
-void    			swap(t_stack* l);
-void 				ss(t_stack* a, t_stack* b);
+void				swap(t_stack *l);
+void				ss(t_stack *a, t_stack *b);
 void				push(t_stack *src, t_stack *dest);
+void				rotate(t_stack *src);
 
 #endif

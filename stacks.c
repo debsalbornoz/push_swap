@@ -6,7 +6,7 @@
 /*   By: dlamark- <dlamark-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 20:37:24 by dlamark-          #+#    #+#             */
-/*   Updated: 2023/11/08 21:13:56 by dlamark-         ###   ########.fr       */
+/*   Updated: 2023/11/11 16:13:34 by dlamark-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	print_list(t_stack *l)
 		ft_printf("%i\n", p->value);
 		p = p->next;
 	}
-	write(1,"\n",1);
+	write(1, "\n", 1);
 }
 
 void	add_last(t_stack *l, int value)

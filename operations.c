@@ -6,7 +6,7 @@
 /*   By: dlamark- <dlamark-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 21:31:56 by dlamark-          #+#    #+#             */
-/*   Updated: 2023/11/11 18:44:13 by dlamark-         ###   ########.fr       */
+/*   Updated: 2023/11/11 19:40:51 by dlamark-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,14 +68,25 @@ void	rotate(t_stack *src)
 {
 	t_node	*p_begin;
 	t_node	*p_end;
-	t_node	*p_begin_next;
+	t_node	*p_next;
 
-	p_begin = src->begin;
-	p_end = src->end;
-	p_begin_next = src->begin->next;
-	src->end = p_begin;
-	src->end->next = NULL;
-	src->end->prev = p_end;
-	src->begin = p_begin_next;
-	src->begin->prev = NULL;
+	if (src->begin != NULL && src->begin->next != NULL)
+	{
+		p_begin = src->begin;
+		p_end = src->end;
+		p_next = src->begin->next;
+		src->end->next = p_begin;
+		p_begin->prev = src->end;
+		src->end = p_begin;
+		src->begin = p_next;
+		src->begin->prev = NULL;
+		src->end->next = NULL;
+	}
+}
+
+void	rr(t_stack *a, t_stack *b)
+{
+	rotate(a);
+	rotate(b);
+	ft_printf("rr\n");
 }

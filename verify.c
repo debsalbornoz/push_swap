@@ -6,7 +6,7 @@
 /*   By: dlamark- <dlamark-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 20:59:07 by dlamark-          #+#    #+#             */
-/*   Updated: 2023/11/08 21:26:58 by dlamark-         ###   ########.fr       */
+/*   Updated: 2023/11/11 18:54:33 by dlamark-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	verify(char **argv)
 	int	i;
 
 	i = 1;
-
 	while (argv[i] != NULL)
 	{
 		if (is_number(argv[i]) == 1)

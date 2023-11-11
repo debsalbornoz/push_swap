@@ -6,7 +6,7 @@
 /*   By: dlamark- <dlamark-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 21:04:12 by dlamark-          #+#    #+#             */
-/*   Updated: 2023/11/11 16:46:09 by dlamark-         ###   ########.fr       */
+/*   Updated: 2023/11/11 19:41:01 by dlamark-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,6 @@ void				swap(t_stack *l);
 void				ss(t_stack *a, t_stack *b);
 void				push(t_stack *src, t_stack *dest);
 void				rotate(t_stack *src);
+void				rr(t_stack *a, t_stack *b);
 
 #endif

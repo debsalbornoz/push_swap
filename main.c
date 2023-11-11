@@ -6,7 +6,7 @@
 /*   By: dlamark- <dlamark-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 20:36:19 by dlamark-          #+#    #+#             */
-/*   Updated: 2023/11/08 21:31:34 by dlamark-         ###   ########.fr       */
+/*   Updated: 2023/11/11 14:50:28 by dlamark-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ int	main(int argc, char **argv)
 		exit(1);
 	}
 	create_stack_a(a, argv);
-	create_stack_a(b,argv);
-	push(a,b);
+	create_stack_a(b, argv);
+	push(b, a);
 	print_list(a);
 	print_list(b);
 	destroy_stack(&a);

@@ -47,19 +47,21 @@ void ss(t_stack* a, t_stack* b)
     swap(b);
 }
 
-void push(t_stack *l, t_stack *m)
+
+void	push(t_stack *src, t_stack *dest)
 {
-    t_node *aux;
-    t_node *aux2;
+	t_node	*p_src;
+	t_node	*p_dest;
+	t_node	*p_next;
 
-    aux = l->begin;
-    aux2 = m->begin;
-
-    l->begin = m->begin;
-    l->begin->next = aux->next;
-    l->begin->prev = NULL; 
-    m->begin = aux;
-    m->begin->next = aux->next;
-    free(aux);
-    free(aux2);
+	p_src = src->begin;
+	p_dest = dest->begin;
+	p_next = src->begin->next;
+	p_next->prev = NULL;
+	src->begin = p_next;
+	dest->begin = p_src;
+	p_src->next = p_dest;
+	p_dest->prev = p_src;
+	src->size--;
+	dest->size++;
 }

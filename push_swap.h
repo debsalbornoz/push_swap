@@ -50,6 +50,6 @@ void				destroy_stack(t_stack **l_ref);
 int					list_is_empty(const t_stack *l);
 void    			swap(t_stack* l);
 void 				ss(t_stack* a, t_stack* b);
-void 				push(t_stack *l, t_stack *m);
+void				push(t_stack *src, t_stack *dest);
 
 #endif

@@ -55,7 +55,7 @@ void	push(t_stack *src, t_stack *dest)
 	t_node	*p_next;
 
     if(src->size == 0)
-        return(1);
+        return;
 	p_src = src->begin;
 	p_dest = dest->begin;
 	p_next = src->begin->next;

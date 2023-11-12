@@ -44,49 +44,5 @@ void	ss(t_stack *a, t_stack *b)
 	ft_printf("ss");
 }
 
-void	push(t_stack *src, t_stack *dest)
-{
-	t_node	*p_src;
-	t_node	*p_dest;
-	t_node	*p_next;
 
-	if (src->size == 0)
-		return ;
-	p_src = src->begin;
-	p_dest = dest->begin;
-	p_next = src->begin->next;
-	p_next->prev = NULL;
-	src->begin = p_next;
-	dest->begin = p_src;
-	p_src->next = p_dest;
-	p_dest->prev = p_src;
-	src->size--;
-	dest->size++;
-}
 
-void	rotate(t_stack *src)
-{
-	t_node	*p_begin;
-	t_node	*p_end;
-	t_node	*p_next;
-
-	if (src->begin != NULL && src->begin->next != NULL)
-	{
-		p_begin = src->begin;
-		p_end = src->end;
-		p_next = src->begin->next;
-		src->end->next = p_begin;
-		p_begin->prev = src->end;
-		src->end = p_begin;
-		src->begin = p_next;
-		src->begin->prev = NULL;
-		src->end->next = NULL;
-	}
-}
-
-void	rr(t_stack *a, t_stack *b)
-{
-	rotate(a);
-	rotate(b);
-	ft_printf("rr\n");
-}

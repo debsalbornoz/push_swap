@@ -22,12 +22,8 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		exit(1);
 	if (verify(argv) == 1)
-	{
-		ft_printf("Error\n");
 		exit(1);
-	}
-	create_stack_a(a, argv);
-	create_stack_a(b, argv);
+	initialize_stack(a,argv);
 	rr(a, b);
 	print_list(a);
 	print_list(b);

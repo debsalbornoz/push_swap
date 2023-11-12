@@ -1,29 +1,80 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stacks.c                                           :+:      :+:    :+:   */
+/*   linked_list.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlamark- <dlamark-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 20:37:24 by dlamark-          #+#    #+#             */
-/*   Updated: 2023/11/11 16:13:34 by dlamark-         ###   ########.fr       */
+/*   Created: 2023/11/08 20:41:02 by dlamark-          #+#    #+#             */
+/*   Updated: 2023/11/08 21:28:30 by dlamark-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	add_first(t_stack *l, int value)
+t_stack	*create_stack(void)
 {
-	t_node	*p;
+	t_stack	*stack;
 
-	p = create_node(value);
-	p->next = l->begin;
-	if (list_is_empty(l))
-		l->end = p;
+	stack = (t_stack *)ft_calloc(1, sizeof(t_stack));
+	stack->begin = NULL;
+	stack->end = NULL;
+	stack->size = 0;
+	return (stack);
+}
+
+t_node	*create_node(int value)
+{
+	t_node	*node;
+
+	node = (t_node *)ft_calloc(1, sizeof(t_node));
+	node->prev = NULL;
+	node->next = NULL;
+	node->value = value;
+	return (node);
+}
+
+void	add_node(t_stack *stack, int value)
+{
+	t_node	*new_node;
+
+	new_node = create_node(value);
+	if ((stack->size == 0) && (stack->begin == NULL) && (stack->end == NULL))
+		stack->begin = new_node;
 	else
-		l->begin->prev = p;
-	l->begin = p;
-	l->size++;
+	{
+		stack->end->next = new_node;
+		new_node->prev = stack->end;
+	}
+	stack->end = new_node;
+	stack->size++;
+}
+
+void	initialize_stack(t_stack *a, char **argv)
+{
+	int	i;
+	i = 1;
+	while (argv[i] != NULL)
+	{
+		add_node(a, atoi(argv[i]));
+		i++;
+	}
+}
+void destroy_stack(t_stack **stack_ref)
+{
+    t_stack *stack = *stack_ref;
+    t_node *current_node;
+	t_node *next_node;
+
+    current_node = stack->begin;
+    while (current_node != NULL)
+    {
+        next_node = current_node->next;
+        free(current_node);
+        current_node = next_node;
+    }
+    free(stack);
+    *stack_ref = NULL;
 }
 
 void	print_list(t_stack *l)
@@ -37,33 +88,4 @@ void	print_list(t_stack *l)
 		p = p->next;
 	}
 	write(1, "\n", 1);
-}
-
-void	add_last(t_stack *l, int value)
-{
-	t_node	*q;
-
-	q = create_node(value);
-	if (list_is_empty(l))
-		l->begin = q;
-	else
-	{
-		l->end->next = q;
-		q->prev = l->end;
-	}
-	l->end = q;
-	l->size++;
-}
-
-void	create_stack_a(t_stack *l, char **argv)
-{
-	int	i;
-
-	i = 1;
-	while (argv[i] != NULL)
-	{
-		add_last(l, atoi(argv[i]));
-		i++;
-	}
-	print_list(l);
 }

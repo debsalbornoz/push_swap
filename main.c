@@ -19,12 +19,10 @@ int	main(int argc, char **argv)
 
 	a = create_stack();
 	b = create_stack();
-	if (argc == 1)
-		exit(1);
-	if (verify(argv) == 1)
+	if (argc == 1 || check_args(argv))
 		exit(1);
 	initialize_stack(a,argv);
-	rr(a, b);
+	reverse_rotate(a);
 	print_list(a);
 	print_list(b);
 	destroy_stack(&a);

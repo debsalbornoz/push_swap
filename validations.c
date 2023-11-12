@@ -18,19 +18,27 @@ int	is_number(char *s);
 int	duplicates(char **argv);
 int	max_int(char **argv);
 
-int	verify(char **argv)
+int	check_args(char **argv)
 {
 	int	i;
 
 	i = 1;
 	while (argv[i] != NULL)
 	{
-		if (is_number(argv[i]) == 1)
+		if (is_number(argv[i]))
+		{
+			ft_printf("Error\n");
 			return (1);
+		}
+
 		i++;
 	}
 	if (duplicates(argv) == 1 || max_int(argv) == 1)
+	{
+		ft_printf("Error\n");
 		return (1);
+	}
+		
 	return (0);
 }
 
@@ -48,10 +56,7 @@ int	duplicates(char **argv)
 		while (argv[j] != NULL)
 		{
 			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
-			{
-				ft_printf("Arguments duplicated\n");
 				return (1);
-			}
 			j++;
 		}
 		if (argv[j] == NULL)
@@ -73,10 +78,7 @@ int	is_number(char *s)
 		if (s[i] == '+' || s[i] == '-')
 			i++;
 		if (ft_isdigit(s[i]) == 0)
-		{
-			ft_printf("The arguments should be only digits\n");
 			return (1);
-		}
 		i++;
 	}
 	return (0);
@@ -95,10 +97,7 @@ int	max_int(char **argv)
 	{
 		if (ft_custom_atoi(argv[i]) >= int_max
 			|| ft_custom_atoi(argv[i]) <= int_min)
-		{
-			ft_printf("Argument equal or greater than the max int\n");
 			return (1);
-		}
 		i++;
 	}
 	return (0);

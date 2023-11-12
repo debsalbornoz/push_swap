@@ -22,9 +22,11 @@ int	main(int argc, char **argv)
 	if (argc == 1 || check_args(argv))
 		exit(1);
 	initialize_stack(a,argv);
-	reverse_rotate(a);
+	rotate(a,'a');
 	print_list(a);
-	print_list(b);
+	reverse_rotate(a, 'a');
+	print_list(a);
+	print_list(a);
 	destroy_stack(&a);
 	destroy_stack(&b);
 	return (0);

@@ -42,12 +42,12 @@ long				ft_custom_atoi(const char *nptr);
 
 // Operations
 
-void				swap(t_stack *l);
+void				swap(t_stack *stack, char stack_name);
 void				ss(t_stack *a, t_stack *b);
 void				push(t_stack *src, t_stack *dest);
-void				rotate(t_stack *src);
+void				rotate(t_stack *stack, char stack_name);
 void				rr(t_stack *a, t_stack *b);
-void 				reverse_rotate(t_stack *stack);
+void 				reverse_rotate(t_stack *stack,char stack_name);
 
 // Stacks
 t_stack	*create_stack(void);

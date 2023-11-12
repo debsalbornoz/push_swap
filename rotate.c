@@ -1,25 +1,32 @@
 #include "push_swap.h"
 
-void	rotate(t_stack *src)
+void	rotate(t_stack *stack, char stack_name)
 {
 	t_node	*p_begin;
 	t_node	*p_next;
-        if (src->begin != NULL && src->begin->next != NULL)
+        if (stack->begin != NULL && stack->begin->next != NULL)
     {
-		p_begin = src->begin;
-		p_next = src->begin->next;
-		src->end->next = p_begin;
-		p_begin->prev = src->end;
-		src->end = p_begin;
-		src->begin = p_next;
-		src->begin->prev = NULL;
-		src->end->next = NULL;
+		p_begin = stack->begin;
+		p_next = stack->begin->next;
+		stack->end->next = p_begin;
+		p_begin->prev = stack->end;
+		stack->end = p_begin;
+		stack->begin = p_next;
+		stack->begin->prev = NULL;
+		stack->end->next = NULL;
+        if(stack_name == 'a')
+            ft_printf("ra\n");
+        if(stack_name == 'b')
+            ft_printf("rb\n");
+        if(stack_name == 'r')
+            ft_printf("rb\n");    
+                
     }
 }
 
 void	rr(t_stack *a, t_stack *b)
 {
-	rotate(a);
-	rotate(b);
+	rotate(a,'r');
+	rotate(b,'r');
 	ft_printf("rr\n");
 }

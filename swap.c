@@ -12,21 +12,27 @@
 
 #include "push_swap.h"
 
-void	swap(t_stack *src)
+void	swap(t_stack *stack, char stack_name)
 {
 	int	aux;
 
-	if (src->size <= 1)
+	if (stack->size <= 1)
 		return ;
-	aux = src->begin->value;
-	src->begin->value = src->begin->next->value;
-	src->begin->next->value = aux;
+	aux = stack->begin->value;
+	stack->begin->value = stack->begin->next->value;
+	stack->begin->next->value = aux;
+	if(stack_name == 'a')
+		ft_printf("sa\n");
+	else if(stack_name == 'b')
+		ft_printf("sb\n");
+	else if(stack_name == 's')
+		return;	
 }
 
 void	ss(t_stack *a, t_stack *b)
 {
-	swap(a);
-	swap(b);
+	swap(a, 's');
+	swap(b,'s');
 	ft_printf("ss");
 }
 

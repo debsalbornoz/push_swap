@@ -6,7 +6,7 @@
 /*   By: dlamark- <dlamark-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 21:04:12 by dlamark-          #+#    #+#             */
-/*   Updated: 2023/11/13 19:31:27 by dlamark-         ###   ########.fr       */
+/*   Updated: 2023/11/13 19:50:12 by dlamark-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ long				ft_custom_atoi(const char *nptr);
 
 void				swap(t_stack *stack, char stack_name);
 void				ss(t_stack *a, t_stack *b);
-void				push(t_stack *src, t_stack *dest);
+void				push(t_stack *src, t_stack *dest, char stack_name);
 void				rotate(t_stack *stack, char stack_name);
 void				rr(t_stack *a, t_stack *b);
 void				reverse_rotate(t_stack *stack, char stack_name);
@@ -56,5 +56,8 @@ void				add_node(t_stack *stack, int value);
 void				initialize_stack(t_stack *a, char **argv);
 void				destroy_stack(t_stack **stack_ref);
 void				print_list(t_stack *l);
+
+//Algoritm
+void				push_swap(t_stack *a, t_stack *b);
 
 #endif

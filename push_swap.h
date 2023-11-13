@@ -6,7 +6,7 @@
 /*   By: dlamark- <dlamark-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 21:04:12 by dlamark-          #+#    #+#             */
-/*   Updated: 2023/11/11 19:41:01 by dlamark-         ###   ########.fr       */
+/*   Updated: 2023/11/13 19:31:27 by dlamark-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,14 @@ void				ss(t_stack *a, t_stack *b);
 void				push(t_stack *src, t_stack *dest);
 void				rotate(t_stack *stack, char stack_name);
 void				rr(t_stack *a, t_stack *b);
-void 				reverse_rotate(t_stack *stack,char stack_name);
+void				reverse_rotate(t_stack *stack, char stack_name);
 
 // Stacks
-t_stack	*create_stack(void);
-t_node	*create_node(int value);
-void	add_node(t_stack *stack, int value);
-void	initialize_stack(t_stack *a, char **argv);
-void destroy_stack(t_stack **stack_ref);
-void	print_list(t_stack *l);
-
+t_stack				*create_stack(void);
+t_node				*create_node(int value);
+void				add_node(t_stack *stack, int value);
+void				initialize_stack(t_stack *a, char **argv);
+void				destroy_stack(t_stack **stack_ref);
+void				print_list(t_stack *l);
 
 #endif

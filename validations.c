@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   verify.c                                           :+:      :+:    :+:   */
+/*   validations.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlamark- <dlamark-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 20:59:07 by dlamark-          #+#    #+#             */
-/*   Updated: 2023/11/11 18:54:33 by dlamark-         ###   ########.fr       */
+/*   Updated: 2023/11/13 19:32:16 by dlamark-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	check_args(char **argv)
 			ft_printf("Error\n");
 			return (1);
 		}
-
 		i++;
 	}
 	if (duplicates(argv) == 1 || max_int(argv) == 1)
@@ -38,7 +37,6 @@ int	check_args(char **argv)
 		ft_printf("Error\n");
 		return (1);
 	}
-		
 	return (0);
 }
 

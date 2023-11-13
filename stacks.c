@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   linked_list.c                                      :+:      :+:    :+:   */
+/*   stacks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlamark- <dlamark-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 20:41:02 by dlamark-          #+#    #+#             */
-/*   Updated: 2023/11/08 21:28:30 by dlamark-         ###   ########.fr       */
+/*   Updated: 2023/11/13 19:32:14 by dlamark-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	add_node(t_stack *stack, int value)
 void	initialize_stack(t_stack *a, char **argv)
 {
 	int	i;
+
 	i = 1;
 	while (argv[i] != NULL)
 	{
@@ -60,21 +61,23 @@ void	initialize_stack(t_stack *a, char **argv)
 		i++;
 	}
 }
-void destroy_stack(t_stack **stack_ref)
-{
-    t_stack *stack = *stack_ref;
-    t_node *current_node;
-	t_node *next_node;
 
-    current_node = stack->begin;
-    while (current_node != NULL)
-    {
-        next_node = current_node->next;
-        free(current_node);
-        current_node = next_node;
-    }
-    free(stack);
-    *stack_ref = NULL;
+void	destroy_stack(t_stack **stack_ref)
+{
+	t_stack	*stack;
+	t_node	*current_node;
+	t_node	*next_node;
+
+	stack = *stack_ref;
+	current_node = stack->begin;
+	while (current_node != NULL)
+	{
+		next_node = current_node->next;
+		free(current_node);
+		current_node = next_node;
+	}
+	free(stack);
+	*stack_ref = NULL;
 }
 
 void	print_list(t_stack *l)

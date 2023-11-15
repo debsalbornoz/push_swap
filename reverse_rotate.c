@@ -6,19 +6,11 @@
 /*   By: dlamark- <dlamark-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 19:31:48 by dlamark-          #+#    #+#             */
-/*   Updated: 2023/11/13 19:31:50 by dlamark-         ###   ########.fr       */
+/*   Updated: 2023/11/15 14:16:36 by dlamark-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/*
-rra (reverse rotate a): Shift down all elements of stack a by 1.
-The last element becomes the first one.
-rrb (reverse rotate b): Shift down all elements of stack b by 1.
-The last element becomes the first one.
-rrr : rra and rrb at the same time
-*/
 
 void	reverse_rotate(t_stack *stack, char stack_name)
 {

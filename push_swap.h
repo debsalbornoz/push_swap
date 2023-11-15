@@ -6,7 +6,7 @@
 /*   By: dlamark- <dlamark-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 21:04:12 by dlamark-          #+#    #+#             */
-/*   Updated: 2023/11/13 19:50:12 by dlamark-         ###   ########.fr       */
+/*   Updated: 2023/11/15 14:40:27 by dlamark-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,6 @@ void				print_list(t_stack *l);
 
 //Algoritm
 void				push_swap(t_stack *a, t_stack *b);
+void				handle_two_elements(t_stack *stack);
 
 #endif

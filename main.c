@@ -22,7 +22,10 @@ int	main(int argc, char **argv)
 	if (argc == 1 || check_args(argv))
 		exit(1);
 	initialize_stack(a, argv);
+	print_list(a);
+	print_list(b);
 	push_swap(a, b);
+	print_list(a);
 	print_list(b);
 	destroy_stack(&a);
 	destroy_stack(&b);

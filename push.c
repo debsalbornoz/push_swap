@@ -29,6 +29,7 @@ void	push(t_stack *src, t_stack *dest, char stack_name)
 	p_src->next = p_dest;
 	if (p_dest != NULL)
 		p_dest->prev = p_src;
+	dest->begin = p_src;
 	src->size--;
 	dest->size++;
 	if (stack_name == 'a')

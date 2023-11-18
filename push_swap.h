@@ -60,5 +60,5 @@ void				print_list(t_stack *l);
 //Algoritm
 void				push_swap(t_stack *a, t_stack *b);
 void				handle_two_elements(t_stack *stack);
-
+int 				find_target_node(t_stack *a, t_stack *b);
 #endif

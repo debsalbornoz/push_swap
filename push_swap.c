@@ -39,3 +39,23 @@ void	handle_two_elements(t_stack *stack)
 	else
 		swap(stack, 'a');
 }
+
+int find_target_node(t_stack *a, t_stack *b)
+{
+	 int target_value = a->begin->value;
+    t_node *stack_b = b->begin;
+
+    int closest_value = stack_b->value;
+    int min_difference = target_value - closest_value;
+
+    while (stack_b != NULL) {
+        int difference = target_value - stack_b->value;
+        if (difference * difference < min_difference * min_difference) {
+            min_difference = difference;
+            closest_value = stack_b->value;
+        }
+        stack_b = stack_b->next;
+    }
+
+    return closest_value;
+}

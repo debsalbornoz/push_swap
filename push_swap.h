@@ -53,8 +53,9 @@ void 				reverse_rotate(t_stack *stack,char stack_name);
 t_stack	*create_stack(void);
 t_node	*create_node(int value);
 void	add_node(t_stack *stack, int value);
-void	initialize_stack(t_stack *a, char **argv);
-void destroy_stack(t_stack **stack_ref);
+void	initialize_stacks(t_stack **a, t_stack **b, char **argv);
+void 	destroy(t_stack **stack_ref);
+void	destroy_stacks(t_stack **a, t_stack **b);
 void	print_list(t_stack *l);
 
 

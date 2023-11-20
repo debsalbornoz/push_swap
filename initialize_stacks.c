@@ -50,31 +50,17 @@ void	add_node(t_stack *stack, int value)
 	stack->size++;
 }
 
-void	initialize_stack(t_stack *a, char **argv)
+void	initialize_stacks(t_stack **a, t_stack **b, char **argv)
 {
 	int	i;
 	i = 1;
+	*a = create_stack();
+	*b = create_stack();
 	while (argv[i] != NULL)
 	{
-		add_node(a, atoi(argv[i]));
+		add_node(*a, atoi(argv[i]));
 		i++;
 	}
-}
-void destroy_stack(t_stack **stack_ref)
-{
-    t_stack *stack = *stack_ref;
-    t_node *current_node;
-	t_node *next_node;
-
-    current_node = stack->begin;
-    while (current_node != NULL)
-    {
-        next_node = current_node->next;
-        free(current_node);
-        current_node = next_node;
-    }
-    free(stack);
-    *stack_ref = NULL;
 }
 
 void	print_list(t_stack *l)

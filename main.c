@@ -17,17 +17,11 @@ int	main(int argc, char **argv)
 	t_stack	*a;
 	t_stack	*b;
 
-	a = create_stack();
-	b = create_stack();
 	if (argc == 1 || check_args(argv))
 		exit(1);
-	initialize_stack(a,argv);
-	rotate(a,'a');
+	initialize_stacks(&a, &b, argv);
+	push_swap(a,b);
 	print_list(a);
-	reverse_rotate(a, 'a');
-	print_list(a);
-	print_list(a);
-	destroy_stack(&a);
-	destroy_stack(&b);
+	destroy_stacks(&a,&b);
 	return (0);
 }

@@ -17,11 +17,16 @@ int	main(int argc, char **argv)
 	t_stack	*a;
 	t_stack	*b;
 
+	a = NULL;
+	b = NULL;
 	if (argc == 1 || check_args(argv))
 		exit(1);
 	initialize_stacks(&a, &b, argv);
-	// push_swap(a,b);
-	push(a,b);
+	if(!stack_sorted(a))
+	{
+		push_swap(a,b);
+	}
+
 	print_list(a);
 	print_list(b);
 	destroy_stacks(&a,&b);

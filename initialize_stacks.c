@@ -63,6 +63,20 @@ void	initialize_stacks(t_stack **a, t_stack **b, char **argv)
 	}
 }
 
+int stack_sorted(t_stack *a)
+{
+	t_node *aux;
+	aux = a->begin;
+	while(aux != NULL && aux->next != NULL)
+	{
+		if(aux->value > aux->next->value)
+		{
+			return(0);
+		}
+		aux = aux->next;
+	}
+	return(1);
+}
 void	print_list(t_stack *l)
 {
 	t_node	*p;

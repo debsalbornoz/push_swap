@@ -22,8 +22,13 @@
 typedef struct s_node
 {
 	int				value;
+	int 			index;
+	int				push_price;
+	bool			cheapest;
+	bool			above_median;
 	struct s_node	*prev;
 	struct s_node	*next;
+	struct s_node 	*target_node;
 }					t_node;
 
 typedef struct s_stack
@@ -61,5 +66,5 @@ void	print_list(t_stack *l);
 //Algorithm
 void push_swap(t_stack *a, t_stack *b);
 void handle_two_elements(t_stack *a);
-
+int stack_sorted(t_stack *a);
 #endif

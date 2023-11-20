@@ -58,5 +58,8 @@ void 	destroy(t_stack **stack_ref);
 void	destroy_stacks(t_stack **a, t_stack **b);
 void	print_list(t_stack *l);
 
+//Algorithm
+void push_swap(t_stack *a, t_stack *b);
+void handle_two_elements(t_stack *a);
 
 #endif

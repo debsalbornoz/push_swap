@@ -20,8 +20,10 @@ int	main(int argc, char **argv)
 	if (argc == 1 || check_args(argv))
 		exit(1);
 	initialize_stacks(&a, &b, argv);
-	push_swap(a,b);
+	// push_swap(a,b);
+	push(a,b);
 	print_list(a);
+	print_list(b);
 	destroy_stacks(&a,&b);
 	return (0);
 }

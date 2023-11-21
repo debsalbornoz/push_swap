@@ -50,7 +50,7 @@ long				ft_custom_atoi(const char *nptr);
 
 void				swap(t_stack *stack, char stack_name);
 void				ss(t_stack *a, t_stack *b);
-void				push(t_stack *src, t_stack *dest);
+void 				push(t_stack *src, t_stack *dest, char stack_name);
 void				rotate(t_stack *stack, char stack_name);
 void				rr(t_stack *a, t_stack *b);
 void 				reverse_rotate(t_stack *stack,char stack_name);

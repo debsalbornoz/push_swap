@@ -24,9 +24,11 @@ int	main(int argc, char **argv)
 	initialize_stacks(&a, &b, argv);
 	if(!stack_sorted(a))
 	{
-		push_swap(a,b);
+		push(a,b,'a');
+		push(a,b,'a');
+		rotate(b,'b');
+		reverse_rotate(b,'b');
 	}
-
 	print_list(a);
 	print_list(b);
 	destroy_stacks(&a,&b);

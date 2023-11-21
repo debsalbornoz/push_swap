@@ -13,6 +13,8 @@ void reverse_rotate(t_stack *stack, char stack_name)
     t_node  *p_begin;
     t_node  *p_end;
     
+    if(stack->size <= 1)
+        return;
     p_begin = stack->begin;
     p_end = stack->end;
     stack->begin = p_end;

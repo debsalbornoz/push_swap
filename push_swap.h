@@ -15,6 +15,7 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
+# include <stdbool.h>
 
 # define MAX_INTEIRO 2147483647
 # define MIN_INTEIRO -2147483648

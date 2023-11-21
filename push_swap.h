@@ -68,4 +68,5 @@ void	print_list(t_stack *l);
 void push_swap(t_stack *a, t_stack *b);
 void handle_two_elements(t_stack *a);
 int stack_sorted(t_stack *a);
+t_node  *find_smallest(t_stack   *node);
 #endif

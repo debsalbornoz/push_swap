@@ -16,7 +16,7 @@ int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
-
+	t_node	*smallest;
 	a = NULL;
 	b = NULL;
 	if (argc == 1 || check_args(argv))
@@ -24,10 +24,8 @@ int	main(int argc, char **argv)
 	initialize_stacks(&a, &b, argv);
 	if(!stack_sorted(a))
 	{
-		push(a,b,'a');
-		push(a,b,'a');
-		rotate(b,'b');
-		reverse_rotate(b,'b');
+		smallest = find_smallest(a);
+	ft_printf("%i", smallest->value);
 	}
 	print_list(a);
 	print_list(b);

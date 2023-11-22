@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stacks.c                                           :+:      :+:    :+:   */
+/*   initialize_stacks.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlamark- <dlamark-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 20:41:02 by dlamark-          #+#    #+#             */
-/*   Updated: 2023/11/15 14:13:08 by dlamark-         ###   ########.fr       */
+/*   Updated: 2023/11/22 20:03:31 by dlamark-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,36 +48,37 @@ void	add_node(t_stack *stack, int value)
 	}
 	stack->end = new_node;
 	stack->size++;
+	new_node->index = stack->size;
 }
 
-void	initialize_stack(t_stack *a, char **argv)
+void	initialize_stacks(t_stack **a, t_stack **b, char **argv)
 {
 	int	i;
 
 	i = 1;
+	*a = create_stack();
+	*b = create_stack();
 	while (argv[i] != NULL)
 	{
-		add_node(a, atoi(argv[i]));
+		add_node(*a, atoi(argv[i]));
 		i++;
 	}
 }
 
-void	destroy_stack(t_stack **stack_ref)
+int	stack_sorted(t_stack *a)
 {
-	t_stack	*stack;
-	t_node	*current_node;
-	t_node	*next_node;
+	t_node	*aux;
 
-	stack = *stack_ref;
-	current_node = stack->begin;
-	while (current_node != NULL)
+	aux = a->begin;
+	while (aux != NULL && aux->next != NULL)
 	{
-		next_node = current_node->next;
-		free(current_node);
-		current_node = next_node;
+		if (aux->value > aux->next->value)
+		{
+			return (0);
+		}
+		aux = aux->next;
 	}
-	free(stack);
-	*stack_ref = NULL;
+	return (1);
 }
 
 void	print_list(t_stack *l)

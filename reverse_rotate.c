@@ -6,7 +6,7 @@
 /*   By: dlamark- <dlamark-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 19:31:48 by dlamark-          #+#    #+#             */
-/*   Updated: 2023/11/15 14:16:36 by dlamark-         ###   ########.fr       */
+/*   Updated: 2023/11/22 19:35:56 by dlamark-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	reverse_rotate(t_stack *stack, char stack_name)
 	t_node	*p_begin;
 	t_node	*p_end;
 
+	if (stack->size <= 1)
+		return ;
 	p_begin = stack->begin;
 	p_end = stack->end;
 	stack->begin = p_end;

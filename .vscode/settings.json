@@ -1,5 +1,11 @@
 {
+<<<<<<< HEAD
 	"files.associations": {
 		"type_traits": "c"
 	}
+=======
+    "files.associations": {
+        "push_swap.h": "c"
+    }
+>>>>>>> 4b0dfdd2de7db6df970bdb3c90f53e4a797cf390
 }

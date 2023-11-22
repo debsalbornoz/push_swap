@@ -6,7 +6,7 @@
 /*   By: dlamark- <dlamark-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 21:04:12 by dlamark-          #+#    #+#             */
-/*   Updated: 2023/11/15 14:40:27 by dlamark-         ###   ########.fr       */
+/*   Updated: 2023/11/22 20:04:25 by dlamark-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
+# include <stdbool.h>
 
 # define MAX_INTEIRO 2147483647
 # define MIN_INTEIRO -2147483648
@@ -22,8 +23,13 @@
 typedef struct s_node
 {
 	int				value;
+	int				index;
+	int				push_price;
+	bool			cheapest;
+	bool			above_median;
 	struct s_node	*prev;
 	struct s_node	*next;
+	struct s_node	*target_node;
 }					t_node;
 
 typedef struct s_stack
@@ -53,12 +59,14 @@ void				reverse_rotate(t_stack *stack, char stack_name);
 t_stack				*create_stack(void);
 t_node				*create_node(int value);
 void				add_node(t_stack *stack, int value);
-void				initialize_stack(t_stack *a, char **argv);
-void				destroy_stack(t_stack **stack_ref);
+void				initialize_stacks(t_stack **a, t_stack **b, char **argv);
+void				destroy(t_stack **stack_ref);
+void				destroy_stacks(t_stack **a, t_stack **b);
 void				print_list(t_stack *l);
 
-//Algoritm
+//Algorithm
 void				push_swap(t_stack *a, t_stack *b);
-void				handle_two_elements(t_stack *stack);
-int 				find_target_node(t_stack *a, t_stack *b);
+void				handle_two_elements(t_stack *a);
+int					stack_sorted(t_stack *a);
+t_node				*find_smallest(t_stack *node);
 #endif

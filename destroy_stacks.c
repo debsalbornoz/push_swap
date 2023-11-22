@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   destroy_stacks.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlamark- <dlamark-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 20:36:19 by dlamark-          #+#    #+#             */
-/*   Updated: 2023/11/22 19:29:14 by dlamark-         ###   ########.fr       */
+/*   Created: 2023/11/22 19:28:42 by dlamark-          #+#    #+#             */
+/*   Updated: 2023/11/22 19:28:43 by dlamark-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	destroy(t_stack **stack_ref)
 {
-	t_stack	*a;
-	t_stack	*b;
-	t_node	*smallest;
+	t_stack	*stack;
+	t_node	*current_node;
+	t_node	*next_node;
 
-	a = NULL;
-	b = NULL;
-	if (argc == 1 || check_args(argv))
-		exit(1);
-	initialize_stacks(&a, &b, argv);
-	if (!stack_sorted(a))
+	stack = *stack_ref;
+	current_node = stack->begin;
+	while (current_node != NULL)
 	{
-		smallest = find_smallest(a);
-		ft_printf("%i\n", smallest->value);
+		next_node = current_node->next;
+		free(current_node);
+		current_node = next_node;
 	}
-	//print_list(a);
-	//print_list(b);
-	destroy_stacks(&a, &b);
-	return (0);
+	free(stack);
+	*stack_ref = NULL;
+}
+
+void	destroy_stacks(t_stack **a, t_stack **b)
+{
+	destroy(a);
+	destroy(b);
 }

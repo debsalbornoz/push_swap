@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlamark- <dlamark-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 20:36:19 by dlamark-          #+#    #+#             */
-/*   Updated: 2023/11/22 19:29:14 by dlamark-         ###   ########.fr       */
+/*   Created: 2023/11/22 19:36:12 by dlamark-          #+#    #+#             */
+/*   Updated: 2023/11/22 19:36:14 by dlamark-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+t_node	*find_smallest(t_stack *node)
 {
-	t_stack	*a;
-	t_stack	*b;
-	t_node	*smallest;
+	long	smallest;
+	t_node	*aux;
+	t_node	*aux2;
 
-	a = NULL;
-	b = NULL;
-	if (argc == 1 || check_args(argv))
-		exit(1);
-	initialize_stacks(&a, &b, argv);
-	if (!stack_sorted(a))
+	smallest = MAX_INTEIRO;
+	aux = node->begin;
+	while (aux != NULL)
 	{
-		smallest = find_smallest(a);
-		ft_printf("%i\n", smallest->value);
+		if (aux->value < smallest)
+		{
+			smallest = aux->value;
+			aux2 = aux;
+		}
+		aux = aux->next;
 	}
-	//print_list(a);
-	//print_list(b);
-	destroy_stacks(&a, &b);
-	return (0);
+	return (aux2);
 }

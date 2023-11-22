@@ -6,7 +6,7 @@
 /*   By: dlamark- <dlamark-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 21:04:12 by dlamark-          #+#    #+#             */
-/*   Updated: 2023/11/22 20:04:25 by dlamark-         ###   ########.fr       */
+/*   Updated: 2023/11/22 20:22:24 by dlamark-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,5 @@ void				push_swap(t_stack *a, t_stack *b);
 void				handle_two_elements(t_stack *a);
 int					stack_sorted(t_stack *a);
 t_node				*find_smallest(t_stack *node);
+t_node				*find_biggest(t_stack *node);
 #endif

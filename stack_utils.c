@@ -7,7 +7,7 @@ t_node  *find_smallest(t_stack   *node)
     t_node  *aux;
     t_node  *aux2;
     aux = node->begin;
-    while(node != NULL)
+    while(aux != NULL)
     {
         if(aux->value < smallest)
         {
@@ -19,3 +19,4 @@ t_node  *find_smallest(t_stack   *node)
     }
     return(aux2);
 }
+

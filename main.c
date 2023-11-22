@@ -25,10 +25,10 @@ int	main(int argc, char **argv)
 	if(!stack_sorted(a))
 	{
 		smallest = find_smallest(a);
-	ft_printf("%i", smallest->value);
+	ft_printf("%i\n", smallest->value);
 	}
-	print_list(a);
-	print_list(b);
+	//print_list(a);
+	//print_list(b);
 	destroy_stacks(&a,&b);
 	return (0);
 }

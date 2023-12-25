@@ -72,7 +72,8 @@ t_node				*find_smallest(t_stack *node);
 t_node				*find_biggest(t_stack *node);
 void				tiny_sort(t_stack **a);
 void				current_position(t_stack *stack);
-void			set_target_node(t_stack *a, t_stack *b);
+void				set_target_node(t_stack *a, t_stack *b);
 void				init_nodes(t_stack *a, t_stack *b);
 void 				print_target_nodes(t_stack *b);
+void				set_price(t_stack *a, t_stack *b);
 #endif

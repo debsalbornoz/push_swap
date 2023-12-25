@@ -51,3 +51,16 @@ t_node	*find_biggest(t_stack *node)
 	}
 	return (aux2);
 }
+
+t_node *find_cheapest(t_node *stack)
+{
+	if(stack == NULL)
+		return(NULL);
+	while(stack != NULL)
+	{
+		if(stack->cheapest)
+			return(stack);
+		stack = stack->next;
+	}
+	return(NULL);
+}

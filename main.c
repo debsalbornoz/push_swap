@@ -16,7 +16,6 @@ int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
-	t_node	*biggest;
 
 	a = NULL;
 	b = NULL;
@@ -25,10 +24,12 @@ int	main(int argc, char **argv)
 	initialize_stacks(&a, &b, argv);
 	if (!stack_sorted(a))
 	{
-		biggest = find_biggest(a);
-		ft_printf("%i\n", biggest->value);
+		if(a->size == 2)
+			swap(a, 'a');
+		if(a->size == 3)
+			tiny_sort(&a);
 	}
-	//print_list(a);
+	print_list(a);
 	//print_list(b);
 	destroy_stacks(&a, &b);
 	return (0);

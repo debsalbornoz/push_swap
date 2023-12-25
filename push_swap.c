@@ -12,20 +12,24 @@
 
 #include "push_swap.h"
 
-void	push_swap(t_stack *a, t_stack *b)
-{
-	if (a->size == 1)
-		return ;
-	else if (a->size == 2)
-		handle_two_elements(a);
-	else if (a->size == 4)
-		push(a, b, 'a');
+void tiny_sort(t_stack **a) {
+    if (a == NULL || *a == NULL || (*a)->begin == NULL) {
+        return;
+    }
+
+    t_node *stack = (*a)->begin;
+    t_node *highest_node = find_biggest(*a);
+
+    if (highest_node == NULL)
+        return;
+    if (stack == highest_node)
+        rotate(*a, 'a');
+	else if (stack->next == highest_node)
+        reverse_rotate(*a, 'a');
+	stack = (*a)->begin;
+    if (stack->next != NULL && stack->value > stack->next->value) {
+        swap(*a, 'a');
+    }
 }
 
-void	handle_two_elements(t_stack *a)
-{
-	if (a->begin->value > a->begin->next->value)
-		swap(a, 'a');
-	else
-		return ;
-}
+

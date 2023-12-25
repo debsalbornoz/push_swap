@@ -66,8 +66,8 @@ void				print_list(t_stack *l);
 
 //Algorithm
 void				push_swap(t_stack *a, t_stack *b);
-void				handle_two_elements(t_stack *a);
 int					stack_sorted(t_stack *a);
 t_node				*find_smallest(t_stack *node);
 t_node				*find_biggest(t_stack *node);
+void				tiny_sort(t_stack **a);
 #endif

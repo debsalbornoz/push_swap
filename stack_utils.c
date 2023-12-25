@@ -18,7 +18,7 @@ t_node	*find_smallest(t_stack *node)
 	t_node	*aux;
 	t_node	*aux2;
 
-	smallest = MAX_INTEIRO;
+	smallest = MAX_INTEGER;
 	aux = node->begin;
 	while (aux != NULL)
 	{
@@ -38,7 +38,7 @@ t_node	*find_biggest(t_stack *node)
 	t_node	*aux2;
 	long	biggest;
 
-	biggest = MIN_INTEIRO;
+	biggest = MIN_INTEGER;
 	aux = node->begin;
 	while (aux != NULL)
 	{

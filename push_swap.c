@@ -32,4 +32,21 @@ void tiny_sort(t_stack **a) {
     }
 }
 
-
+void push_swap(t_stack *a, t_stack  *b)
+{
+	while(a->size > 3)
+	{
+		push(a,b,'a');
+	}
+	if(a->size == 3)
+		tiny_sort(&a);
+}
+// void	handle_five(t_stack_node **a, t_stack_node **b)
+// {
+// 	while (stack_len(*a) > 3)
+// 	{
+// 		init_nodes(*a, *b);
+// 		finish_rotation(a, find_smallest(*a), 'a');
+// 		pb(b, a, false);
+// 	}
+// }

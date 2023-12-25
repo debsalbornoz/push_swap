@@ -2,7 +2,7 @@ CC = cc
 CFLAGS = -g3 -Wall -Wextra -Werror
 
 
-SRCS = main.c validations.c initialize_stacks.c destroy_stacks.c push.c rotate.c swap.c reverse_rotate.c push_swap.c stack_utils.c
+SRCS = main.c validations.c initialize_stacks.c create_stacks.c free_stacks.c push.c rotate.c swap.c reverse_rotate.c push_swap.c stack_utils.c
 OBJ = $(SRCS:.c=.o)
 NAME = push_swap
 LIBFT_DIR = ./libft

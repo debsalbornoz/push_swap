@@ -1,95 +1,76 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   initialize_stacks.c                                :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dlamark- <dlamark-@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 20:41:02 by dlamark-          #+#    #+#             */
-/*   Updated: 2023/11/22 20:03:31 by dlamark-         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
+#include <stdio.h>
 
-t_stack	*create_stack(void)
-{
-	t_stack	*stack;
-
-	stack = (t_stack *)ft_calloc(1, sizeof(t_stack));
-	stack->begin = NULL;
-	stack->end = NULL;
-	stack->size = 0;
-	return (stack);
-}
-
-t_node	*create_node(int value)
-{
-	t_node	*node;
-
-	node = (t_node *)ft_calloc(1, sizeof(t_node));
-	node->prev = NULL;
-	node->next = NULL;
-	node->value = value;
-	return (node);
-}
-
-void	add_node(t_stack *stack, int value)
-{
-	t_node	*new_node;
-
-	new_node = create_node(value);
-	if ((stack->size == 0) && (stack->begin == NULL) && (stack->end == NULL))
-		stack->begin = new_node;
-	else
-	{
-		stack->end->next = new_node;
-		new_node->prev = stack->end;
-	}
-	stack->end = new_node;
-	stack->size++;
-	new_node->index = stack->size;
-}
-
-void	initialize_stacks(t_stack **a, t_stack **b, char **argv)
+void	get_relative_positions(t_stack *stack)
 {
 	int	i;
-
-	i = 1;
-	*a = create_stack();
-	*b = create_stack();
-	while (argv[i] != NULL)
+	int	center;
+	t_node *node = stack->begin;
+	i = 0;
+	if (stack == NULL)
+		return ;
+	center = stack->size / 2;
+	while (node != NULL)
 	{
-		add_node(*a, atoi(argv[i]));
-		i++;
+		node->current_position = i;
+		if (i <= center)
+			node->above_median = true;
+		else
+			node->above_median = false;
+		node = node->next;
+		++i;
 	}
 }
 
-int	stack_sorted(t_stack *a)
+void	set_target_node(t_stack *a, t_stack *b)
 {
-	t_node	*aux;
+	t_node	        *stack_a;
+	t_node          *stack_b;
+    t_node          *current_a;
+    t_node	        *target_node;
+	long			best_match;
 
-	aux = a->begin;
-	while (aux != NULL && aux->next != NULL)
+    stack_a = a->begin;
+    stack_b = b->begin;
+	while (stack_b != NULL)
 	{
-		if (aux->value > aux->next->value)
+		best_match = MAX_LONG;
+		current_a = stack_a;
+		while (current_a != NULL)
 		{
-			return (0);
+			if (current_a->value > stack_b->value && current_a->value < best_match)
+			{
+				best_match = current_a->value;
+				target_node = current_a;
+			}
+			current_a = current_a->next;
 		}
-		aux = aux->next;
+		if (MAX_LONG == best_match)
+			stack_b->target_node = find_smallest(a);
+		else
+			stack_b->target_node = target_node;
+		stack_b = stack_b->next;
 	}
-	return (1);
 }
 
-void	print_list(t_stack *l)
+void print_target_nodes(t_stack *b)
 {
-	t_node	*p;
+    t_node *current_b = b->begin;
 
-	p = l->begin;
-	while (p != NULL)
-	{
-		ft_printf("%i\n", p->value);
-		p = p->next;
-	}
-	write(1, "\n", 1);
+    printf("Target Nodes:\n");
+
+    while (current_b != NULL)
+    {
+        printf("Node value: %d, Target Node value: %d\n", current_b->value, current_b->target_node->value);
+        current_b = current_b->next;
+    }
+
+    printf("\n");
+}
+
+void	init_nodes(t_stack *a, t_stack *b)
+{
+	get_relative_positions(a);
+	get_relative_positions(b);
+	set_target_node(a, b);
 }

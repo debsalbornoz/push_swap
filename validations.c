@@ -89,8 +89,8 @@ int	max_int(char **argv)
 	long int	int_min;
 
 	i = 1;
-	int_max = MAX_INTEIRO;
-	int_min = MIN_INTEIRO;
+	int_max = MAX_INTEGER;
+	int_min = MIN_INTEGER;
 	while (argv[i] != NULL)
 	{
 		if (ft_custom_atoi(argv[i]) >= int_max

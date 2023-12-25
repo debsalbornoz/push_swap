@@ -35,7 +35,7 @@ void	push(t_stack *src, t_stack *dest, char stack_name)
 	src->size--;
 	dest->size++;
 	if (stack_name == 'a')
-		ft_printf("sa\n");
+		ft_printf("pb\n");
 	else
-		ft_printf("sb\n");
+		ft_printf("pa\n");
 }

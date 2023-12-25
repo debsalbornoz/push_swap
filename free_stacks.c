@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	destroy(t_stack **stack_ref)
+void	free_stack(t_stack **stack_ref)
 {
 	t_stack	*stack;
 	t_node	*current_node;
@@ -30,8 +30,8 @@ void	destroy(t_stack **stack_ref)
 	*stack_ref = NULL;
 }
 
-void	destroy_stacks(t_stack **a, t_stack **b)
+void	free_stacks(t_stack **a, t_stack **b)
 {
-	destroy(a);
-	destroy(b);
+	free(a);
+	free(b);
 }

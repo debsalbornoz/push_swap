@@ -17,14 +17,15 @@
 # include "libft/libft.h"
 # include <stdbool.h>
 
-# define MAX_INTEIRO 2147483647
-# define MIN_INTEIRO -2147483648
-
+# define MAX_INTEGER 2147483647
+# define MIN_INTEGER -2147483648
+# define MAX_LONG 9223372036854775807
 typedef struct s_node
 {
 	int				value;
 	int				index;
 	int				push_price;
+	int				current_position;
 	bool			cheapest;
 	bool			above_median;
 	struct s_node	*prev;
@@ -60,8 +61,8 @@ t_stack				*create_stack(void);
 t_node				*create_node(int value);
 void				add_node(t_stack *stack, int value);
 void				initialize_stacks(t_stack **a, t_stack **b, char **argv);
-void				destroy(t_stack **stack_ref);
-void				destroy_stacks(t_stack **a, t_stack **b);
+void				free_stack(t_stack **stack_ref);
+void				free_stacks(t_stack **a, t_stack **b);
 void				print_list(t_stack *l);
 
 //Algorithm
@@ -70,4 +71,8 @@ int					stack_sorted(t_stack *a);
 t_node				*find_smallest(t_stack *node);
 t_node				*find_biggest(t_stack *node);
 void				tiny_sort(t_stack **a);
+void				current_position(t_stack *stack);
+void			set_target_node(t_stack *a, t_stack *b);
+void				init_nodes(t_stack *a, t_stack *b);
+void 				print_target_nodes(t_stack *b);
 #endif

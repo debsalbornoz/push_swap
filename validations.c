@@ -55,7 +55,7 @@ int	is_number(char *s)
 	return (1);
 }
 
-//Detects duplicate values within an array of strings (argv).It iterates through the array, comparing each element with all subsequent elements.
+//Detects duplicate values within an array of strings (argv)
 
 int	check_duplicates(char **argv)
 {

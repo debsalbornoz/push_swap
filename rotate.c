@@ -12,6 +12,10 @@
 
 #include "push_swap.h"
 
+/* This function performs a rotation operation on a stack represented by the t_stack structure.
+It checks if the stack is non-empty and has more than one element. 
+If so, it rotates the elements in the stack by updating pointers and prints a message indicating the operation performed*/
+
 void	rotate(t_stack *stack, char stack_name)
 {
 	t_node	*p_begin;
@@ -34,10 +38,11 @@ void	rotate(t_stack *stack, char stack_name)
 		if (stack_name == 'b')
 			ft_printf("rb\n");
 		if (stack_name == 'r')
-			ft_printf("rb\n");
+			return;
 	}
 }
 
+/*Performs a double rotation on two stacks (a and b) by calling the rotate function*/
 void	rr(t_stack *a, t_stack *b)
 {
 	rotate(a, 'r');

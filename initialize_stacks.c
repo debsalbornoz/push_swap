@@ -18,6 +18,9 @@ void	initialize_stacks(t_stack **a, t_stack **b, char **argv)
 	}
 }
 
+/*For each node, this function sets the current_position attribute based on its position in the stack
+and determines whether the node is above or below the median, setting the above_median attribute accordingly.*/
+
 void	get_relative_positions(t_stack *stack)
 {
 	int	i;
@@ -39,6 +42,9 @@ void	get_relative_positions(t_stack *stack)
 	}
 }
 
+/*Determines target nodes in stack a for each node in stack b.
+It iterates through nodes in b, finding the smallest node in a that is greater than the current node in b. 
+If no such node is found, it selects the smallest node in a as the target.*/
 void	set_target_node(t_stack *a, t_stack *b)
 {
 	t_node	        *stack_a;
@@ -90,4 +96,5 @@ void	init_nodes(t_stack *a, t_stack *b)
 	get_relative_positions(a);
 	get_relative_positions(b);
 	set_target_node(a, b);
+
 }

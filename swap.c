@@ -12,6 +12,10 @@
 
 #include "push_swap.h"
 
+/*The swap function performs the swap of the two elements at the top of a stack.
+If the stack has fewer than two elements, the function does nothing. Otherwise, the values of the two elements at the top of the stack are exchanged.
+The function prints a message indicating the operation performed.*/
+
 void	swap(t_stack *stack, char stack_name)
 {
 	int	aux;
@@ -28,6 +32,8 @@ void	swap(t_stack *stack, char stack_name)
 	else if (stack_name == 's')
 		return ;
 }
+
+/*The function ss performs the simultaneous swap operation on two stacks (a and b).*/
 
 void	ss(t_stack *a, t_stack *b)
 {

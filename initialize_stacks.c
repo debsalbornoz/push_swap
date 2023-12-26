@@ -1,6 +1,23 @@
 #include "push_swap.h"
 #include <stdio.h>
 
+/*Create stacks 'a' and 'b', and add all the command-line arguments to stack 'a',
+ converting strings into numbers using the ft_atoi function. */
+
+void	initialize_stacks(t_stack **a, t_stack **b, char **argv)
+{
+	int	i;
+
+	i = 1;
+	*a = create_stack();
+	*b = create_stack();
+	while (argv[i] != NULL)
+	{
+		add_node(*a, atoi(argv[i]));
+		i++;
+	}
+}
+
 void	get_relative_positions(t_stack *stack)
 {
 	int	i;

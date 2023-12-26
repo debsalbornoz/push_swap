@@ -64,3 +64,23 @@ t_node *find_cheapest(t_node *stack)
 	}
 	return(NULL);
 }
+
+
+/*Checks if a stack is sorted in ascending order. It iterates through the stack,
+ comparing each node's value with the value of the next node.*/
+
+int	stack_sorted(t_stack *a)
+{
+	t_node	*aux;
+
+	aux = a->begin;
+	while (aux != NULL && aux->next != NULL)
+	{
+		if (aux->value > aux->next->value)
+		{
+			return (0);
+		}
+		aux = aux->next;
+	}
+	return (1);
+}

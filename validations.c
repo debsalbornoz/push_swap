@@ -13,11 +13,6 @@
 #include "push_swap.h"
 #include <limits.h>
 
-int	arguments(int argc);
-int	is_number(char *s);
-int	duplicates(char **argv);
-int	max_int(char **argv);
-
 /*This code iterates through all command-line arguments,
 checking whether each argument is a number and verifying if there are any duplicate numbers.
 Additionally, it ensures that the numeric values fall within the permissible range for integers,

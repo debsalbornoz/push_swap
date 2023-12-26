@@ -61,42 +61,6 @@ void	add_node(t_stack *stack, int value)
 	new_node->index = stack->size;
 }
 
-/*Create stacks 'a' and 'b', and add all the command-line arguments to stack 'a',
- converting strings into numbers using the ft_atoi function. */
-
-void	initialize_stacks(t_stack **a, t_stack **b, char **argv)
-{
-	int	i;
-
-	i = 1;
-	*a = create_stack();
-	*b = create_stack();
-	while (argv[i] != NULL)
-	{
-		add_node(*a, atoi(argv[i]));
-		i++;
-	}
-}
-
-/*Checks if a stack is sorted in ascending order. It iterates through the stack,
- comparing each node's value with the value of the next node.*/
-
-int	stack_sorted(t_stack *a)
-{
-	t_node	*aux;
-
-	aux = a->begin;
-	while (aux != NULL && aux->next != NULL)
-	{
-		if (aux->value > aux->next->value)
-		{
-			return (0);
-		}
-		aux = aux->next;
-	}
-	return (1);
-}
-
 void	print_list(t_stack *l)
 {
 	t_node	*p;

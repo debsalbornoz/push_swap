@@ -13,12 +13,9 @@
 #include "push_swap.h"
 #include <limits.h>
 
-/*This code iterates through all command-line arguments,
-checking whether each argument is a number and verifying if there are any duplicate numbers.
-Additionally, it ensures that the numeric values fall within the permissible range for integers,
-considering both the maximum and minimum limits.
-In case an argument is not a number, there are duplicate arguments, 
-or the numeric value exceeds the allowed integer limits, an error is reported.
+/*The "check_args" function goes through all command-line arguments, using "is_number" to ensure each is a valid number.
+It also checks for duplicates with the "duplicates" function and verifies that numeric values stay within acceptable integer limits using "max_int."
+If there's an invalid number, duplicates, or values outside the allowed range, an error is reported.
 .*/
 
 int	check_args(char **argv)

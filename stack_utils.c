@@ -31,7 +31,7 @@ int	stack_sorted(t_stack *a)
 	return (1);
 }
 
-//The find_min_value function iterates through a stack to identify and return the node with the smallest value in the stack.
+//Iterates through a stack to identify and return the node with the smallest value in the stack.
 
 t_node	*find_min_value(t_stack *node)
 {
@@ -53,7 +53,7 @@ t_node	*find_min_value(t_stack *node)
 	return (min_value_node);
 }
 
-//The find_max_value function iterates through a stack to identify and return the node with the biggest value in the stack.
+//Iterates through a stack to identify and return the node with the biggest value in the stack.
 
 t_node	*find_max_value(t_stack *node)
 {
@@ -75,7 +75,7 @@ t_node	*find_max_value(t_stack *node)
 	return (max_value_node);
 }
 
-/*The find_cheapest function searches for a node in a stack of elements, where each node has an attribute named cheapest. 
+/*Searches for a node in a stack of elements, where each node has an attribute named cheapest. 
 It returns the first node in the stack with the cheapest attribute set to true*/
 
 t_node *find_cheapest(t_node *stack)

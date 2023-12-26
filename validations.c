@@ -12,9 +12,9 @@
 
 #include "push_swap.h"
 
-/*The check_args function goes through all command-line arguments, using the function is_number to ensure each is a valid number.
-It also checks for duplicates with the duplicates function and verifies that numeric values stay within acceptable
-integer limits,using the max_int function.
+/*The check_args function goes through all arguments,  using the function is_number to ensure each is a valid number.
+It also checks for duplicates with the check_duplicates function and verifies that numeric values stay within acceptable
+integer limits,using the check_max_int function.
 If there's an invalid number, duplicates, or values outside the allowed range, an error is reported.*/
 
 int	check_args(char **argv)
@@ -28,10 +28,12 @@ int	check_args(char **argv)
 			return (1);
 		i++;
 	}
-	if (duplicates(argv) || max_int(argv))
+	if (check_duplicates(argv) || check_max_int(argv))
 		return (1);
 	return (0);
 }
+
+// The is_number function checks if a given string s represents a valid number. 
 
 int	is_number(char *s)
 {
@@ -53,7 +55,10 @@ int	is_number(char *s)
 	return (1);
 }
 
-int	duplicates(char **argv)
+/*The duplicates function checks for duplicate values in an array of strings (argv). 
+It iterates through the array, comparing each element with all subsequent elements.*/
+
+int	check_duplicates(char **argv)
 {
 	int	i;
 	int	j;
@@ -81,8 +86,10 @@ int	duplicates(char **argv)
 	}
 	return (0);
 }
+/*The check_max_int function validates if the numbers provided through the command line are within
+the maximum or minimum possible values.*/
 
-int	max_int(char **argv)
+int	check_max_int(char **argv)
 {
 	int			i;
 	long int	int_max;

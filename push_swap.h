@@ -44,8 +44,8 @@ typedef struct s_stack
 // Validations
 int					is_number(char *s);
 int					check_args(char **argv);
-int					duplicates(char **argv);
-int					max_int(char **argv);
+int					check_duplicates(char **argv);
+int					check_max_int(char **argv);
 long				ft_custom_atoi(const char *nptr);
 
 // Operations

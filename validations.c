@@ -18,6 +18,9 @@ int	is_number(char *s);
 int	duplicates(char **argv);
 int	max_int(char **argv);
 
+/*This code iterates through all command-line arguments, checking whether each argument is a number and verifying if there are any duplicate numbers.
+Additionally, it ensures that the numeric values fall within the permissible range for integers, considering both the maximum and minimum limits.
+In case an argument is not a number, there are duplicate arguments, or the numeric value exceeds the allowed integer limits, an error is reported.*/
 int	check_args(char **argv)
 {
 	int	i;
@@ -25,14 +28,14 @@ int	check_args(char **argv)
 	i = 1;
 	while (argv[i] != NULL)
 	{
-		if (is_number(argv[i]))
+		if (!is_number(argv[i]))
 		{
 			ft_printf("Error\n");
 			return (1);
 		}
 		i++;
 	}
-	if (duplicates(argv) == 1 || max_int(argv) == 1)
+	if (duplicates(argv) || max_int(argv))
 	{
 		ft_printf("Error\n");
 		return (1);
@@ -76,10 +79,10 @@ int	is_number(char *s)
 		if (s[i] == '+' || s[i] == '-')
 			i++;
 		if (ft_isdigit(s[i]) == 0)
-			return (1);
+			return (0);
 		i++;
 	}
-	return (0);
+	return (1);
 }
 
 int	max_int(char **argv)

@@ -26,7 +26,7 @@ t_stack	*create_stack(void)
 	return (stack);
 }
 
-/* Creates and returns a new node (t_node) for a linked list data structure.*/
+// Creates and returns a new node for a linked list data structure.
 
 t_node	*create_node(int value)
 {

@@ -12,45 +12,71 @@
 
 #include "push_swap.h"
 
-t_node	*find_smallest(t_stack *node)
-{
-	long	smallest;
-	t_node	*aux;
-	t_node	*aux2;
+/*Checks if a stack is sorted in ascending order. It iterates through the stack,
+ comparing each node's value with the value of the next node.*/
 
-	smallest = MAX_INTEGER;
-	aux = node->begin;
-	while (aux != NULL)
+int	stack_sorted(t_stack *a)
+{
+	t_node	*current_node;
+
+	current_node = a->begin;
+	while (current_node != NULL && current_node->next != NULL)
 	{
-		if (aux->value < smallest)
+		if (current_node->value > current_node->next->value)
 		{
-			smallest = aux->value;
-			aux2 = aux;
+			return (0);
 		}
-		aux = aux->next;
+		current_node = current_node->next;
 	}
-	return (aux2);
+	return (1);
 }
 
-t_node	*find_biggest(t_stack *node)
-{
-	t_node	*aux;
-	t_node	*aux2;
-	long	biggest;
+//The find_min_value function iterates through a stack to identify and return the node with the smallest value in the stack.
 
-	biggest = MIN_INTEGER;
-	aux = node->begin;
-	while (aux != NULL)
+t_node	*find_min_value(t_stack *node)
+{
+	long	min_value;
+	t_node	*current_node;
+	t_node	*min_value_node
+
+	min_value = MAX_INTEGER;
+	current_node = node->begin;
+	while (current_node != NULL)
 	{
-		if (aux->value > biggest)
+		if (current_node->value < smallest)
 		{
-			biggest = aux->value;
-			aux2 = aux;
+			min_value = current_node->value;
+			min_value_node = current_node;
 		}
-		aux = aux->next;
+		current_node = current_node->next;
 	}
-	return (aux2);
+	return (min_value_node);
 }
+
+//The find_max_value function iterates through a stack to identify and return the node with the biggest value in the stack.
+
+t_node	*find_max_value(t_stack *node)
+{
+	t_node	*current_node;
+	t_node	*max_value_node;
+	long	max_value;
+
+	max_value = MIN_INTEGER;
+	current_node = node->begin;
+	while (current_node != NULL)
+	{
+		if (current_node->value > max_value)
+		{
+			max_value = current_node->value;
+			max_value_node = current_node;
+		}
+		current_node = current_node->next;
+	}
+	return (max_value_node);
+}
+
+/*The find_cheapest function searches for a node in a stack of elements, where each node has an attribute named cheapest. 
+It returns the first node in the stack with the cheapest attribute set to true*/
 
 t_node *find_cheapest(t_node *stack)
 {
@@ -65,22 +91,3 @@ t_node *find_cheapest(t_node *stack)
 	return(NULL);
 }
 
-
-/*Checks if a stack is sorted in ascending order. It iterates through the stack,
- comparing each node's value with the value of the next node.*/
-
-int	stack_sorted(t_stack *a)
-{
-	t_node	*aux;
-
-	aux = a->begin;
-	while (aux != NULL && aux->next != NULL)
-	{
-		if (aux->value > aux->next->value)
-		{
-			return (0);
-		}
-		aux = aux->next;
-	}
-	return (1);
-}

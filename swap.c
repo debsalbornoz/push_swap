@@ -34,7 +34,7 @@ void	swap(t_stack *stack, char stack_name)
 		return ;
 }
 
-/*The function ss performs the simultaneous swap operation on two stacks (a and b).*/
+//The function ss performs the simultaneous swap operation on two stacks (a and b).
 
 void	ss(t_stack *a, t_stack *b)
 {

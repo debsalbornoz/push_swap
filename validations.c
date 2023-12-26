@@ -14,7 +14,8 @@
 #include <limits.h>
 
 /*The "check_args" function goes through all command-line arguments, using "is_number" to ensure each is a valid number.
-It also checks for duplicates with the "duplicates" function and verifies that numeric values stay within acceptable integer limits using "max_int."
+It also checks for duplicates with the "duplicates" function and verifies that numeric values stay
+within acceptable integer limits,using "max_int."
 If there's an invalid number, duplicates, or values outside the allowed range, an error is reported.
 .*/
 

@@ -35,7 +35,7 @@ t_node	*find_min_value(t_stack *stack)
 {
 	long	min_value;
 	t_node	*current_node;
-	t_node	*min_value_node
+	t_node	*min_value_node;
 
 	min_value = MAX_INTEGER;
 	current_node = stack->begin;

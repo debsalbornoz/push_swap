@@ -11,11 +11,10 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <limits.h>
 
-/*The "check_args" function goes through all command-line arguments, using "is_number" to ensure each is a valid number.
-It also checks for duplicates with the "duplicates" function and verifies that numeric values stay within acceptable
-integer limits,using "max_int."
+/*The check_args function goes through all command-line arguments, using the function is_number to ensure each is a valid number.
+It also checks for duplicates with the duplicates function and verifies that numeric values stay within acceptable
+integer limits,using the max_int function.
 If there's an invalid number, duplicates, or values outside the allowed range, an error is reported.*/
 
 int	check_args(char **argv)
@@ -34,6 +33,26 @@ int	check_args(char **argv)
 	return (0);
 }
 
+int	is_number(char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] == '+' || s[i] == '-')
+			i++;
+		if (ft_isdigit(s[i]) == 0)
+		{
+			ft_printf("Error\n");
+			return (0);
+		}
+
+		i++;
+	}
+	return (1);
+}
+
 int	duplicates(char **argv)
 {
 	int	i;
@@ -48,7 +67,10 @@ int	duplicates(char **argv)
 		while (argv[j])
 		{
 			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
+			{
+				ft_printf("Error\n");
 				return (1);
+			}
 			j++;
 		}
 		if (argv[j] == NULL)
@@ -58,22 +80,6 @@ int	duplicates(char **argv)
 		}
 	}
 	return (0);
-}
-
-int	is_number(char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
-	{
-		if (s[i] == '+' || s[i] == '-')
-			i++;
-		if (ft_isdigit(s[i]) == 0)
-			return (0);
-		i++;
-	}
-	return (1);
 }
 
 int	max_int(char **argv)
@@ -89,7 +95,11 @@ int	max_int(char **argv)
 	{
 		if (ft_custom_atoi(argv[i]) >= int_max
 			|| ft_custom_atoi(argv[i]) <= int_min)
-			return (1);
+			{
+				ft_printf("Error\n");
+				return (1);
+			}
+			
 		i++;
 	}
 	return (0);

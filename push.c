@@ -12,6 +12,11 @@
 
 #include "push_swap.h"
 
+/*The push function transfers the top element from one stack (src) to another stack (dest).
+It first checks if the source stack has one or zero elements or if it is empty. If so, the function does nothing.
+Otherwise, it moves the top element from the src stack to the top of the dest stack, updating pointers accordingly.
+It also adjusts the size and end pointers for both stacks. Finally, it prints a message indicating the operation performed*/
+
 void	push(t_stack *src, t_stack *dest, char stack_name)
 {
 	t_node	*p_src;
@@ -34,7 +39,7 @@ void	push(t_stack *src, t_stack *dest, char stack_name)
 	}
 	src->size--;
 	dest->size++;
-	if (stack_name == 'a')
+	if (stack_name == 'b')
 		ft_printf("pb\n");
 	else
 		ft_printf("pa\n");

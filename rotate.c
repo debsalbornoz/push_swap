@@ -43,6 +43,7 @@ void	rotate(t_stack *stack, char stack_name)
 }
 
 /*Performs a double rotation on two stacks (a and b) by calling the rotate function*/
+
 void	rr(t_stack *a, t_stack *b)
 {
 	rotate(a, 'r');

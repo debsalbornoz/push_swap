@@ -20,6 +20,7 @@
 # define MAX_INTEGER 2147483647
 # define MIN_INTEGER -2147483648
 # define MAX_LONG 9223372036854775807
+
 typedef struct s_node
 {
 	int				value;
@@ -39,8 +40,8 @@ typedef struct s_stack
 	t_node			*end;
 	size_t			size;
 }					t_stack;
-// Verifications
-int					arguments_number(int argc);
+
+// Validations
 int					is_number(char *s);
 int					check_args(char **argv);
 int					duplicates(char **argv);
@@ -68,8 +69,8 @@ void				print_list(t_stack *l);
 //Algorithm
 void				push_swap(t_stack *a, t_stack *b);
 int					stack_sorted(t_stack *a);
-t_node				*find_smallest(t_stack *node);
-t_node				*find_biggest(t_stack *node);
+t_node				*find_min_value(t_stack *node);
+t_node				*find_max_value(t_stack *node);
 void				tiny_sort(t_stack **a);
 void				current_position(t_stack *stack);
 void				set_target_node(t_stack *a, t_stack *b);

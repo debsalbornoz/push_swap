@@ -12,6 +12,10 @@
 
 #include "push_swap.h"
 
+/*The reverse_rotate function performs a reverse rotation operation on a stack. 
+It checks if the stack has one or zero elements, and if so, it does nothing.
+Otherwise, it updates pointers to reverse the order of elements in the stack and prints a message indicating the operation performed */
+
 void	reverse_rotate(t_stack *stack, char stack_name)
 {
 	t_node	*p_begin;
@@ -35,6 +39,7 @@ void	reverse_rotate(t_stack *stack, char stack_name)
 		return ;
 }
 
+/* Performs a double reverse rotation on two stacks by calling the reverse_rotate function for both.*/
 void	rrr(t_stack *a, t_stack *b)
 {
 	reverse_rotate(a, 'r');

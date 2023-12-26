@@ -22,10 +22,7 @@ int main(int argc, char **argv)
     a = NULL;
     b = NULL;
     if (argc == 1 || check_args(argv))
-    {
-        ft_printf("Error\n");
         exit(1);
-    }
     initialize_stacks(&a, &b, argv);
     if (!stack_sorted(a))
     {

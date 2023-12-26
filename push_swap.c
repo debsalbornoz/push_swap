@@ -12,13 +12,20 @@
 
 #include "push_swap.h"
 
+/*The function sorts the stack when it contains 3 elements. It identifies the maximum value in the stack using the find_max_value function. 
+The goal is to place the maximum value at the last position. 
+If the maximum value is at the first position, it performs a rotation. If it's at the second position, it performs a reverse rotation. 
+If the maximum value is already at the last position, no action is taken. 
+If the first two elements are in reverse order, it performs a swap operation. 
+By the end of the function, the three elements are arranged in ascending order.*/
+
 void tiny_sort(t_stack **a) {
     if (a == NULL || *a == NULL || (*a)->begin == NULL) {
         return;
     }
 
     t_node *stack = (*a)->begin;
-    t_node *highest_node = find_biggest(*a);
+    t_node *highest_node = find_max_value(*a);
 
     if (highest_node == NULL)
         return;
@@ -41,12 +48,3 @@ void push_swap(t_stack *a, t_stack  *b)
 	if(a->size == 3)
 		tiny_sort(&a);
 }
-// void	handle_five(t_stack_node **a, t_stack_node **b)
-// {
-// 	while (stack_len(*a) > 3)
-// 	{
-// 		init_nodes(*a, *b);
-// 		finish_rotation(a, find_smallest(*a), 'a');
-// 		pb(b, a, false);
-// 	}
-// }

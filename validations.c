@@ -33,7 +33,7 @@ int	check_args(char **argv)
 	return (0);
 }
 
-// Checks if a given string s represents a valid number. 
+//Validates whether a given string is a numeric representation.
 
 int	is_number(char *s)
 {
@@ -55,7 +55,8 @@ int	is_number(char *s)
 	return (1);
 }
 
-//Checks for duplicate values in an array of strings (argv).  It iterates through the array, comparing each element with all subsequent elements.
+/*Detects duplicate values within an array of strings (argv).It iterates through the array,
+comparing each element with all subsequent elements.*/
 
 int	check_duplicates(char **argv)
 {
@@ -85,8 +86,8 @@ int	check_duplicates(char **argv)
 	}
 	return (0);
 }
-// Validates if the numbers provided through the command line are within the maximum or minimum possible values.
 
+// Verifies if the numbers provided via the command line fall within the acceptable range of maximum and minimum values.
 int	check_max_int(char **argv)
 {
 	int			i;

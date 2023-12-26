@@ -55,8 +55,7 @@ int	is_number(char *s)
 	return (1);
 }
 
-/*Detects duplicate values within an array of strings (argv).It iterates through the array,
-comparing each element with all subsequent elements.*/
+//Detects duplicate values within an array of strings (argv).It iterates through the array, comparing each element with all subsequent elements.
 
 int	check_duplicates(char **argv)
 {
@@ -88,6 +87,7 @@ int	check_duplicates(char **argv)
 }
 
 // Verifies if the numbers provided via the command line fall within the acceptable range of maximum and minimum values.
+
 int	check_max_int(char **argv)
 {
 	int			i;

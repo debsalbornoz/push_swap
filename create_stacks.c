@@ -12,6 +12,9 @@
 
 #include "push_swap.h"
 
+/*Establish an initial stack with a node containing pointers to the first and last nodes of the list,
+along with the size. Return a pointer to this initial node.*/
+
 t_stack	*create_stack(void)
 {
 	t_stack	*stack;
@@ -23,6 +26,8 @@ t_stack	*create_stack(void)
 	return (stack);
 }
 
+/* Creates and returns a new node (t_node) for a linked list data structure.*/
+
 t_node	*create_node(int value)
 {
 	t_node	*node;
@@ -33,6 +38,11 @@ t_node	*create_node(int value)
 	node->value = value;
 	return (node);
 }
+
+/* Add a new node to the end of a linked list ,updating pointers and size accordingly.
+If the stack is empty, it sets the start pointer. Otherwise, it connects the new node
+to the current last node,  updating the end pointer and incrementing the stack size.
+The new node is assigned an index indicating its position in the stack.*/
 
 void	add_node(t_stack *stack, int value)
 {
@@ -51,6 +61,9 @@ void	add_node(t_stack *stack, int value)
 	new_node->index = stack->size;
 }
 
+/*Create stacks 'a' and 'b', and add all the command-line arguments to stack 'a',
+ converting strings into numbers using the ft_atoi function. */
+
 void	initialize_stacks(t_stack **a, t_stack **b, char **argv)
 {
 	int	i;
@@ -64,6 +77,9 @@ void	initialize_stacks(t_stack **a, t_stack **b, char **argv)
 		i++;
 	}
 }
+
+/*Checks if a stack is sorted in ascending order. It iterates through the stack,
+ comparing each node's value with the value of the next node.*/
 
 int	stack_sorted(t_stack *a)
 {

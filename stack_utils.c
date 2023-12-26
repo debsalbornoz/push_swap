@@ -76,8 +76,10 @@ t_node	*find_max_value(t_stack *stack)
 /*Searches for a node in a stack of elements, where each node has an attribute named cheapest. 
 It returns the first node in the stack with the cheapest attribute set to true*/
 
-t_node *find_cheapest(t_node *node)
+t_node *find_cheapest(t_stack *stack)
 {
+	t_node	*node;
+	node = stack->begin;
 	if(node == NULL)
 		return(NULL);
 	while(node)

@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include <stdio.h>
 #include "push_swap.h"
 
 int main(int argc, char **argv)
@@ -32,13 +30,7 @@ int main(int argc, char **argv)
             tiny_sort(&a);
         else
 		{
-			push_swap(a,b);
-			print_list(a);
-			printf("\n");
-    		print_list(b);
-			printf("\n");
-        	set_target_node(a, b);
-	        print_target_nodes(b);
+			push_swap(&a,&b);
     	}
 	}
             //push_swap(a, b);

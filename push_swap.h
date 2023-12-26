@@ -56,6 +56,7 @@ void				push(t_stack *src, t_stack *dest, char stack_name);
 void				rotate(t_stack *stack, char stack_name);
 void				rr(t_stack *a, t_stack *b);
 void				reverse_rotate(t_stack *stack, char stack_name);
+void				rrr(t_stack *a, t_stack *b);
 
 // Stacks
 t_stack				*create_stack(void);
@@ -67,7 +68,7 @@ void				free_stacks(t_stack **a, t_stack **b);
 void				print_list(t_stack *l);
 
 //Algorithm
-void				push_swap(t_stack *a, t_stack *b);
+void				push_swap(t_stack **a, t_stack **b);
 int					stack_sorted(t_stack *a);
 t_node				*find_min_value(t_stack *node);
 t_node				*find_max_value(t_stack *node);
@@ -77,4 +78,7 @@ void				set_target_node(t_stack *a, t_stack *b);
 void				init_nodes(t_stack *a, t_stack *b);
 void 				print_target_nodes(t_stack *b);
 void				set_price(t_stack *a, t_stack *b);
+void			rotate_both(t_stack **a, t_stack **b, t_node *cheapest_node);
+void				get_relative_positions(t_stack *stack);
+t_node 				*find_cheapest(t_stack *stack);
 #endif

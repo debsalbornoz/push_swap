@@ -22,6 +22,8 @@ void	rotate(t_stack *stack, char stack_name)
 	t_node	*p_next;
 	t_node	*p_end;
 
+	if(stack->size < 2)
+		return;
 	if (stack->begin != NULL && stack->begin->next != NULL)
 	{
 		p_begin = stack->begin;

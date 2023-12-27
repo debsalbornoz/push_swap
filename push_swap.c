@@ -102,7 +102,7 @@ void	move_nodes(t_stack **a, t_stack **b)
 		reverse_rotate_both(a, b, cheapest_node);
 	finish_rotation(b, cheapest_node, 'b');
 	finish_rotation(a, cheapest_node->target_node, 'a');
-	push(*a, *b, 'b');
+	push(*b, *a, 'a');
 }
 
 void	push_swap(t_stack **a, t_stack **b)

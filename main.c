@@ -31,7 +31,10 @@ int main(int argc, char **argv)
         else
 		{
 			push_swap(&a,&b);
+
     	}
+            print_list(a);
+            print_list(b);
 	}
             //push_swap(a, b);
 

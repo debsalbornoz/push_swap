@@ -44,12 +44,11 @@ int	is_number(char *s)
 	{
 		if (s[i] == '+' || s[i] == '-')
 			i++;
-		if (ft_isdigit(s[i]) == 0)
+		if (!ft_isdigit(s[i]))
 		{
 			ft_printf("Error\n");
 			return (0);
 		}
-
 		i++;
 	}
 	return (1);

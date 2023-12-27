@@ -36,7 +36,6 @@ int main(int argc, char **argv)
             print_list(a);
             print_list(b);
 	}
-            //push_swap(a, b);
 
 
     //free_stacks(&a, &b);

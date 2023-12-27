@@ -96,6 +96,8 @@ void	move_nodes(t_stack **a, t_stack **b)
 	t_node	*cheapest_node;
 
 	cheapest_node = find_cheapest(*b);
+	if (cheapest_node == NULL || cheapest_node->target_node == NULL) 
+    	return;
 	if (cheapest_node->above_median && cheapest_node->target_node->above_median)
 		rotate_both(a, b, cheapest_node);
 	else if (!(cheapest_node->above_median) && !(cheapest_node->target_node->above_median))

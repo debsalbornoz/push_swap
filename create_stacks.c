@@ -62,7 +62,7 @@ void	add_node(t_stack *stack, int value)
 /*Create stacks 'a' and 'b', and add all the command-line arguments to stack 'a',
  converting strings into numbers using the ft_atoi function. */
 
-void	initialize_stack_a(t_stack **a, t_stack **b, char **argv)
+void	create_stack_a(t_stack **a, t_stack **b, char **argv)
 {
 	int	i;
 

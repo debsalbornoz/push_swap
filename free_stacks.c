@@ -33,6 +33,8 @@ void	free_stack(t_stack **stack_ref)
 	*stack_ref = NULL;
 }
 
+//Frees the memory associated with the stack 'a' and 'b'.
+
 void	free_stacks(t_stack **a, t_stack **b)
 {
 		free_stack(a);

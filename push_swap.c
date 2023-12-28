@@ -12,50 +12,86 @@
 
 #include "push_swap.h"
 
-/*The function sorts the stack when it contains 3 elements. It identifies the maximum value in the stack using the find_max_value function. 
-The goal is to place the maximum value at the last position. 
-If the maximum value is at the first position, it performs a rotation. If it's at the second position, it performs a reverse rotation. 
-If the maximum value is already at the last position, no action is taken. 
-If the first two elements are in reverse order, it performs a swap operation. 
-By the end of the function, the three elements are arranged in ascending order.*/
+/*Implements the push swap algorithm to sort a stack (a) using an auxiliary stack (b).
+It performs initial pushes, sorts small groups of elements, moves nodes back to stack a, and arranges the final order of elements,
+focusing on minimizing the number of operations for an efficient sorting process.*/
 
-void tiny_sort(t_stack **a)
+void push_swap(t_stack **a, t_stack **b)
 {
-    if (a == NULL || *a == NULL || (*a)->begin == NULL) {
-        return;
+    t_node *min_value_node;
+
+    while ((*a)->size > 3)
+        push(a, b, 'b');
+    tiny_sort(a);
+    while ((*b)->begin != NULL)
+    {
+        initialize_stacks(a, b);
+        move_nodes(a, b);
     }
 
-    t_node *stack = (*a)->begin;
-    t_node *highest_node = find_max_value(*a);
+    initialize_positions(*a);
+    min_value_node = find_min_value(*a);
 
-    if (highest_node == NULL)
-        return;
-    if (stack == highest_node)
-        rotate(a, 'a');
-	else if (stack->next == highest_node)
-        reverse_rotate(a, 'a');
-	stack = (*a)->begin;
-    if (stack->next != NULL && stack->value > stack->next->value) {
-        swap(a, 'a');
-    }
+    if (min_value_node->above_median)
+        while ((*a)->begin != min_value_node)
+            rotate(a, 'a');
+    else
+        while ((*a)->begin != min_value_node)
+            reverse_rotate(a, 'a');
 }
+
+/*Performs the necessary operations to move the cheapest node from stack 'b' to stack 'a'
+while maintaining the target node's relative position.
+It considers whether both the cheapest node and its target node are above or below the median,
+applying appropriate rotation or reverse rotation operations. 
+Finally, it completes the rotation steps and executes the push operation.*/
+
+void	move_nodes(t_stack **a, t_stack **b)
+{
+	t_node	*cheapest_node;
+
+	cheapest_node = find_cheapest(*b);
+	if (cheapest_node == NULL || cheapest_node->target_node == NULL) 
+    	return;
+	if (cheapest_node->above_median && cheapest_node->target_node->above_median)
+		rotate_both(a, b, cheapest_node);
+	else if (!(cheapest_node->above_median) && !(cheapest_node->target_node->above_median))
+		reverse_rotate_both(a, b, cheapest_node);
+	finish_rotation(b, cheapest_node, 'b');
+	finish_rotation(a, cheapest_node->target_node, 'a');
+	push(b, a, 'b');
+}
+
+/*Rotates both stacks simultaneously using the rr operation until the target node of the cheapest node
+in stack b aligns with the cheapest node in stack a. 
+After the rotation, it updates the relative positions of the nodes in both stacks.*/
 
 void	rotate_both(t_stack **a, t_stack **b, t_node *cheapest_node)
 {
 
 	while ((*a)->begin != cheapest_node->target_node && (*b)->begin != cheapest_node)
 		rr(a, b);
-	get_relative_positions(*a);
-	get_relative_positions(*b);
+	initialize_positions(*a);
+	initialize_positions(*b);
 }
+
+/*Performs a combined reverse rotation operation on both stacks until the target node
+of the cheapest node in stack b aligns with the cheapest node in stack a. 
+This function uses the rrr operation, which is a simultaneous reverse rotation of both stacks.
+After the reverse rotation, it updates the relative positions of the nodes in both stacks.*/
 
 void	reverse_rotate_both(t_stack **a, t_stack **b, t_node *cheapest_node)
 {
 	while ((*a)->begin != cheapest_node->target_node && (*b)->begin != cheapest_node)
 		rrr(a, b);
-	get_relative_positions(*a);
-	get_relative_positions(*b);
+	initialize_positions(*a);
+	initialize_positions(*b);
 }
+
+/*The finish_rotation function aligns the top of a given stack (stack) with a specified target node (top_node).
+It adjusts the stack's orientation by either rotating or reverse rotating, depending on whether the target node is above or below the median.
+The direction of rotation is determined by the stack_name parameter, representing either stack 'a' or 'b'. 
+The goal is to position the specified node as the new top element in the stack.*/
 
 void	finish_rotation(t_stack **stack, t_node *top_node, char stack_name)
 {
@@ -79,68 +115,5 @@ void	finish_rotation(t_stack **stack, t_node *top_node, char stack_name)
 	}
 }
 
-void	move_nodes(t_stack **a, t_stack **b)
-{
-	t_node	*cheapest_node;
 
-	cheapest_node = find_cheapest(*b);
-	if (cheapest_node == NULL || cheapest_node->target_node == NULL) 
-    	return;
-	if (cheapest_node->above_median && cheapest_node->target_node->above_median)
-		rotate_both(a, b, cheapest_node);
-	else if (!(cheapest_node->above_median) && !(cheapest_node->target_node->above_median))
-		reverse_rotate_both(a, b, cheapest_node);
-	finish_rotation(b, cheapest_node, 'b');
-	finish_rotation(a, cheapest_node->target_node, 'a');
-	push(b, a, 'b');
-}
 
-void push_swap(t_stack **a, t_stack **b)
-{
-    t_node *smallest;
-
-    while ((*a)->size > 3)
-    {
-        push(a, b, 'b');
-        // Adicione impressões de debugging aqui
-        //ft_printf("After push: Stack A: \n");
-        //print_list(*a);
-       // ft_printf("Stack B: \n");
-       // print_list(*b);
-    }
-
-    tiny_sort(a);
-    while ((*b)->begin != NULL)
-    {
-        init_nodes(a, b);
-        move_nodes(a, b);
-       // ft_printf("After move_nodes: Stack A: \n ");
-        //print_list(*a);
-    	//ft_printf("Stack B: \n");
-       // print_list(*b);
-    }
-
-    get_relative_positions(*a);
-    smallest = find_min_value(*a);
-
-    if (smallest->above_median)
-        while ((*a)->begin != smallest)
-        {
-            rotate(a, 'a');
-            // Adicione impressões de debugging aqui
-            //ft_printf("After rotate: Stack A:\n ");
-            //print_list(*a);
-            //ft_printf("Stack B: \n ");
-            //print_list(*b);
-        }
-    else
-        while ((*a)->begin != smallest)
-        {
-            reverse_rotate(a, 'a');
-            // Adicione impressões de debugging aqui
-            //ft_printf("After reverse_rotate: Stack A: \n ");
-            //print_list(*a);
-            //ft_printf("Stack B: \n ");
-            //print_list(*b);
-        }
-}

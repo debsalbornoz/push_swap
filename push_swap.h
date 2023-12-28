@@ -24,7 +24,6 @@
 typedef struct s_node
 {
 	int				value;
-	int				index;
 	int				push_price;
 	int				current_position;
 	bool			cheapest;
@@ -41,12 +40,30 @@ typedef struct s_stack
 	size_t			size;
 }					t_stack;
 
-// Validations
-int					is_number(char *s);
+//Check arguments
+
 int					check_args(char **argv);
+int					is_number(char *s);
 int					check_duplicates(char **argv);
 int					check_max_int(char **argv);
 long				ft_custom_atoi(const char *nptr);
+
+// Create stacks
+t_stack				*create_stack(void);
+t_node				*create_node(int value);
+void				add_node(t_stack *stack, int value);
+void				create_stack_a(t_stack **a, t_stack **b, char **argv);
+void				print_list(t_stack *l);
+
+//Initializate stacks
+
+void				initialize_stacks(t_stack **a, t_stack **b);
+void				initialize_positions(t_stack *stack);
+void				define_target_node(t_stack *a, t_stack *b);
+void				calculate_push_price(t_stack *a, t_stack *b);
+void				set_cheapest(t_stack *b);
+void				get_relative_positions(t_stack *stack);
+t_node 				*find_cheapest(t_stack *stack);
 
 // Operations
 
@@ -58,27 +75,21 @@ void				rr(t_stack **a, t_stack **b);
 void				reverse_rotate(t_stack **stack, char stack_name);
 void				rrr(t_stack **a, t_stack **b);
 
-// Stacks
-t_stack				*create_stack(void);
-t_node				*create_node(int value);
-void				add_node(t_stack *stack, int value);
-void				initialize_stack_a(t_stack **a, t_stack **b, char **argv);
-void				free_stack(t_stack **stack_ref);
-void				free_stacks(t_stack **a, t_stack **b);
-void				print_list(t_stack *l);
-
 //Algorithm
+
+void				tiny_sort(t_stack **a);
 void				push_swap(t_stack **a, t_stack **b);
 int					stack_sorted(t_stack *a);
 t_node				*find_min_value(t_stack *node);
 t_node				*find_max_value(t_stack *node);
-void				tiny_sort(t_stack **a);
 void				current_position(t_stack *stack);
-void				set_target_node(t_stack *a, t_stack *b);
-void	init_nodes(t_stack **a, t_stack **b);
-void 				print_target_nodes(t_stack *b);
-void				set_price(t_stack *a, t_stack *b);
-void			rotate_both(t_stack **a, t_stack **b, t_node *cheapest_node);
-void				get_relative_positions(t_stack *stack);
-t_node 				*find_cheapest(t_stack *stack);
+void				rotate_both(t_stack **a, t_stack **b, t_node *cheapest_node);
+void				move_nodes(t_stack **a, t_stack **b);
+void				reverse_rotate_both(t_stack **a, t_stack **b, t_node *cheapest_node);
+void				finish_rotation(t_stack **stack, t_node *top_node, char stack_name);
+
+//Free stacks
+void				free_stack(t_stack **stack_ref);
+void				free_stacks(t_stack **a, t_stack **b);
+
 #endif

@@ -21,7 +21,7 @@ int main(int argc, char **argv)
     a = NULL;
     if (argc == 1 || check_args(argv))
         exit(1);
-    initialize_stacks(&a, &b, argv);
+    create_stack_a(&a, &b, argv);
     if (!stack_sorted(a))
     {
         if (a->size == 2)
@@ -29,14 +29,10 @@ int main(int argc, char **argv)
         else if (a->size == 3)
             tiny_sort(&a);
         else
-		{
 			push_swap(&a,&b);
-    	}
-            print_list(a);
-            print_list(b);
 	}
-
-
+    print_list(a);
+    print_list(b);
     free_stacks(&a, &b);
     return (0);
 }

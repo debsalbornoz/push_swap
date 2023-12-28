@@ -1,12 +1,24 @@
 #include "push_swap.h"
 #include <stdio.h>
 
+/*The initialize_stacks function establishes initial conditions for two stacks by assigning the current position of each node,
+determining whether the node is above the median, defining target nodes for stack b in stack a, 
+calculating push prices, and marking the cheapest node in stack b.*/
 
+void	initialize_stacks(t_stack **a, t_stack **b)
+{
+	initialize_positions(*a);
+	initialize_positions(*b);
+	define_target_node(*a, *b);
+	calculate_push_price(*a, *b);
+	set_cheapest(*b);
+
+}
 
 /*For each node, this function sets the current_position attribute based on its position in the stack
 and determines whether the node is above or below the median, setting the above_median attribute accordingly.*/
 
-void	get_relative_positions(t_stack *stack)
+void	initialize_positions(t_stack *stack)
 {
 	int	i;
 	int	center;
@@ -28,10 +40,10 @@ void	get_relative_positions(t_stack *stack)
 }
 
 /*Determines target nodes in stack a for each node in stack b.
-It iterates through nodes in b, finding the smallest node in a that is greater than the current node in b. 
-If no such node is found, it selects the smallest node in a as the target.*/
+It iterates through nodes in 'b', finding the smallest node in 'a' that is greater than the current node in 'b'. 
+If no such node is found, it selects the smallest node in 'a' as the target.*/
 
-void	find_target_node(t_stack *a, t_stack *b)
+void	define_target_node(t_stack *a, t_stack *b)
 {
 
 	t_node          *stack_b;
@@ -61,22 +73,10 @@ void	find_target_node(t_stack *a, t_stack *b)
 	}
 }
 
-void print_target_nodes(t_stack *b)
-{
-    t_node *current_b = b->begin;
+/*Calculates and assigns push prices to each node in stack b based on its current position,
+ whether it is above or below the median, and the position of its target node in stack 'a'.*/
 
-    printf("Target Nodes:\n");
-
-    while (current_b != NULL)
-    {
-        printf("Node value: %d, Target Node value: %d\n", current_b->value, current_b->target_node->value);
-        current_b = current_b->next;
-    }
-
-    printf("\n");
-}
-
-void	set_price(t_stack *a, t_stack *b)
+void	calculate_push_price(t_stack *a, t_stack *b)
 {
 	t_node *stack_b;
 
@@ -94,6 +94,7 @@ void	set_price(t_stack *a, t_stack *b)
 	}
 }
 
+/* Identifies the node with the lowest push price in stack b and marks it as the cheapest. */
 
 void	set_cheapest(t_stack *b)
 {
@@ -117,12 +118,3 @@ void	set_cheapest(t_stack *b)
 	best_match_node->cheapest = true;
 }
 
-void	init_nodes(t_stack **a, t_stack **b)
-{
-	get_relative_positions(*a);
-	get_relative_positions(*b);
-	set_target_node(*a, *b);
-	set_price(*a, *b);
-	set_cheapest(*b);
-
-}

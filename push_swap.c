@@ -42,13 +42,8 @@ void tiny_sort(t_stack **a)
 
 void	rotate_both(t_stack **a, t_stack **b, t_node *cheapest_node)
 {
-    t_node  *stack_a;
-    t_node  *stack_b;
 
-    stack_a = (*a)->begin;
-    stack_b = (*b)->begin;
-    
-	while (stack_a != cheapest_node->target_node && stack_b != cheapest_node)
+	while ((*a)->begin != cheapest_node->target_node && (*b)->begin != cheapest_node)
 		rr(a, b);
 	get_relative_positions(*a);
 	get_relative_positions(*b);
@@ -56,12 +51,7 @@ void	rotate_both(t_stack **a, t_stack **b, t_node *cheapest_node)
 
 void	reverse_rotate_both(t_stack **a, t_stack **b, t_node *cheapest_node)
 {
-    t_node  *stack_a;
-    t_node  *stack_b;
-
-    stack_a = (*a)->begin;
-    stack_b = (*b)->begin;
-	while (stack_a != cheapest_node->target_node && stack_b != cheapest_node)
+	while ((*a)->begin != cheapest_node->target_node && (*b)->begin != cheapest_node)
 		rrr(a, b);
 	get_relative_positions(*a);
 	get_relative_positions(*b);

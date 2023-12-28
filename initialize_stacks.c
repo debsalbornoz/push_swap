@@ -1,22 +1,7 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-/*Create stacks 'a' and 'b', and add all the command-line arguments to stack 'a',
- converting strings into numbers using the ft_atoi function. */
 
-void	initialize_stacks(t_stack **a, t_stack **b, char **argv)
-{
-	int	i;
-
-	i = 1;
-	*a = create_stack();
-	*b = create_stack();
-	while (argv[i] != NULL)
-	{
-		add_node(*a, atoi(argv[i]));
-		i++;
-	}
-}
 
 /*For each node, this function sets the current_position attribute based on its position in the stack
 and determines whether the node is above or below the median, setting the above_median attribute accordingly.*/
@@ -45,30 +30,30 @@ void	get_relative_positions(t_stack *stack)
 /*Determines target nodes in stack a for each node in stack b.
 It iterates through nodes in b, finding the smallest node in a that is greater than the current node in b. 
 If no such node is found, it selects the smallest node in a as the target.*/
-void	set_target_node(t_stack *a, t_stack *b)
+
+void	find_target_node(t_stack *a, t_stack *b)
 {
-	t_node	        *stack_a;
+
 	t_node          *stack_b;
     t_node          *current_a;
     t_node	        *target_node;
-	long			best_match;
+	long			target_value;
 
-    stack_a = a->begin;
     stack_b = b->begin;
 	while (stack_b != NULL)
 	{
-		best_match = MAX_LONG;
-		current_a = stack_a;
+		target_value = MAX_LONG;
+		current_a = a->begin;
 		while (current_a != NULL)
 		{
-			if (current_a->value > stack_b->value && current_a->value < best_match)
+			if (current_a->value > stack_b->value && current_a->value < target_value)
 			{
-				best_match = current_a->value;
+				target_value = current_a->value;
 				target_node = current_a;
 			}
 			current_a = current_a->next;
 		}
-		if (MAX_LONG == best_match)
+		if (MAX_LONG == target_value)
 			stack_b->target_node = find_min_value(a);
 		else
 			stack_b->target_node = target_node;

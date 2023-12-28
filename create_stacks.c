@@ -41,8 +41,7 @@ t_node	*create_node(int value)
 
 /* Add a new node to the end of a linked list ,updating pointers and size accordingly.
 If the stack is empty, it sets the start pointer. Otherwise, it connects the new node
-to the current last node,  updating the end pointer and incrementing the stack size.
-The new node is assigned an index indicating its position in the stack.*/
+to the current last node,  updating the end pointer and incrementing the stack size.*/
 
 void	add_node(t_stack *stack, int value)
 {
@@ -58,7 +57,23 @@ void	add_node(t_stack *stack, int value)
 	}
 	stack->end = new_node;
 	stack->size++;
-	new_node->index = stack->size;
+}
+
+/*Create stacks 'a' and 'b', and add all the command-line arguments to stack 'a',
+ converting strings into numbers using the ft_atoi function. */
+
+void	initialize_stack_a(t_stack **a, t_stack **b, char **argv)
+{
+	int	i;
+
+	i = 1;
+	*a = create_stack();
+	*b = create_stack();
+	while (argv[i] != NULL)
+	{
+		add_node(*a, atoi(argv[i]));
+		i++;
+	}
 }
 
 void	print_list(t_stack *l)

@@ -62,7 +62,7 @@ void				rrr(t_stack **a, t_stack **b);
 t_stack				*create_stack(void);
 t_node				*create_node(int value);
 void				add_node(t_stack *stack, int value);
-void				initialize_stacks(t_stack **a, t_stack **b, char **argv);
+void				initialize_stack_a(t_stack **a, t_stack **b, char **argv);
 void				free_stack(t_stack **stack_ref);
 void				free_stacks(t_stack **a, t_stack **b);
 void				print_list(t_stack *l);

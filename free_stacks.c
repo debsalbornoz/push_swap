@@ -14,6 +14,7 @@
 
 /* Deallocates memory for a stack and its linked list nodes. 
 It iterates through the list, frees each node, then frees the stack.*/
+
 void	free_stack(t_stack **stack_ref)
 {
 	t_stack	*stack;

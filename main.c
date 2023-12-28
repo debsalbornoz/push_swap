@@ -37,6 +37,6 @@ int main(int argc, char **argv)
 	}
 
 
-    //free_stacks(&a, &b);
+    free_stacks(&a, &b);
     return (0);
 }

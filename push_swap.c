@@ -69,10 +69,8 @@ void	reverse_rotate_both(t_stack **a, t_stack **b, t_node *cheapest_node)
 
 void	finish_rotation(t_stack **stack, t_node *top_node, char stack_name)
 {
-    t_node  *node;
 
-    node = (*stack)->begin;
-	while (node != top_node && node != NULL)
+	while ((*stack)->begin != top_node)
 	{
 		if (stack_name == 'a')
 		{
@@ -88,7 +86,6 @@ void	finish_rotation(t_stack **stack, t_node *top_node, char stack_name)
 			else
 				reverse_rotate(stack,'b');
 		}
-		node = node->next;
 	}
 }
 
@@ -105,15 +102,12 @@ void	move_nodes(t_stack **a, t_stack **b)
 		reverse_rotate_both(a, b, cheapest_node);
 	finish_rotation(b, cheapest_node, 'b');
 	finish_rotation(a, cheapest_node->target_node, 'a');
-	push(a, b, 'a');
+	push(b, a, 'b');
 }
 
 void push_swap(t_stack **a, t_stack **b)
 {
     t_node *smallest;
-    t_node *stack_a;
-
-    stack_a = (*a)->begin;
 
     while ((*a)->size > 3)
     {
@@ -140,7 +134,7 @@ void push_swap(t_stack **a, t_stack **b)
     smallest = find_min_value(*a);
 
     if (smallest->above_median)
-        while (stack_a != smallest)
+        while ((*a)->begin != smallest)
         {
             rotate(a, 'a');
             // Adicione impressões de debugging aqui
@@ -150,7 +144,7 @@ void push_swap(t_stack **a, t_stack **b)
             //print_list(*b);
         }
     else
-        while (stack_a != smallest)
+        while ((*a)->begin != smallest)
         {
             reverse_rotate(a, 'a');
             // Adicione impressões de debugging aqui

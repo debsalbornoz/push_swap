@@ -34,6 +34,6 @@ void	free_stack(t_stack **stack_ref)
 
 void	free_stacks(t_stack **a, t_stack **b)
 {
-		free(a);
-		free(b);
+		free_stack(a);
+		free_stack(b);
 }

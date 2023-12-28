@@ -132,12 +132,12 @@ void	set_cheapest(t_stack *b)
 	best_match_node->cheapest = true;
 }
 
-void	init_nodes(t_stack *a, t_stack *b)
+void	init_nodes(t_stack **a, t_stack **b)
 {
-	get_relative_positions(a);
-	get_relative_positions(b);
-	set_target_node(a, b);
-	set_price(a, b);
-	set_cheapest(b);
+	get_relative_positions(*a);
+	get_relative_positions(*b);
+	set_target_node(*a, *b);
+	set_price(*a, *b);
+	set_cheapest(*b);
 
 }

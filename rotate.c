@@ -16,37 +16,33 @@
 It checks if the stack is non-empty and has more than one element. 
 If so, it rotates the elements in the stack by updating pointers and prints a message indicating the operation performed*/
 
-void	rotate(t_stack *stack, char stack_name)
+void rotate(t_stack **stack, char stack_name)
 {
-	t_node	*p_begin;
-	t_node	*p_next;
-	t_node	*p_end;
+    if ((*stack)->size < 2 || (*stack)->begin == NULL || (*stack)->begin->next == NULL)
+        return;
 
-	if(stack->size < 2)
-		return;
-	if (stack->begin != NULL && stack->begin->next != NULL)
-	{
-		p_begin = stack->begin;
-		p_next = stack->begin->next;
-		p_end = stack->end;
-		p_end->next = p_begin;
-		p_begin->prev = p_end;
-		stack->end = p_begin;
-		stack->begin = p_next;
-		stack->begin->prev = NULL;
-		stack->end->next = NULL;
-		if (stack_name == 'a')
-			ft_printf("ra\n");
-		if (stack_name == 'b')
-			ft_printf("rb\n");
-		if (stack_name == 'r')
-			return;
-	}
+    t_node *p_begin = (*stack)->begin;
+    t_node *p_next = (*stack)->begin->next;
+    t_node *p_end = (*stack)->end;
+
+    p_end->next = p_begin;
+    p_begin->prev = p_end;
+    (*stack)->end = p_begin;
+    (*stack)->begin = p_next;
+    (*stack)->begin->prev = NULL;
+    (*stack)->end->next = NULL;
+
+    if (stack_name == 'a')
+        ft_printf("ra\n");
+    else if (stack_name == 'b')
+        ft_printf("rb\n");
+    else if (stack_name == 'r')
+        return;
 }
 
 /*Performs a double rotation on two stacks (a and b) by calling the rotate function*/
 
-void	rr(t_stack *a, t_stack *b)
+void	rr(t_stack **a, t_stack **b)
 {
 	rotate(a, 'r');
 	rotate(b, 'r');

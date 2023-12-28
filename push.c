@@ -17,32 +17,36 @@ It first checks if the source stack has one or zero elements or if it is empty. 
 Otherwise, it moves the top element from the src stack to the top of the dest stack, updating pointers accordingly.
 It also adjusts the size and end pointers for both stacks. Finally, it prints a message indicating the operation performed*/
 
-void push(t_stack *src, t_stack *dest, char stack_name)
+void push(t_stack **src, t_stack **dest, char stack_name)
 {
-    if (src == NULL || dest == NULL || src->size <= 0 || src->begin == NULL)
+    if (*src == NULL || *dest == NULL || (*src)->size <= 0 || (*src)->begin == NULL)
         return;
 
-    t_node *p_src = src->begin;
-    src->begin = p_src->next;
+    t_node *p_src = (*src)->begin;
+    (*src)->begin = p_src->next;
 
-    if (src->begin != NULL)
-        src->begin->prev = NULL;
+    if ((*src)->begin != NULL)
+        (*src)->begin->prev = NULL;
 
-    p_src->next = dest->begin;
+    p_src->next = NULL;
 
-    if (dest->begin != NULL)
-        dest->begin->prev = p_src;
-
-    dest->begin = p_src;
-
-    if (dest->size == 0)
+    if ((*dest)->size == 0)
     {
-        dest->end = dest->begin;
-        dest->end->next = NULL;
+        (*dest)->begin = p_src;
+        (*dest)->end = p_src;
+        p_src->prev = NULL;
+        p_src->next = NULL;
+    }
+    else
+    {
+        p_src->prev = NULL;
+        p_src->next = (*dest)->begin;
+        (*dest)->begin->prev = p_src;
+        (*dest)->begin = p_src;
     }
 
-    src->size--;
-    dest->size++;
+    (*src)->size--;
+    (*dest)->size++;
 
     if (stack_name == 'b')
         ft_printf("pb\n");

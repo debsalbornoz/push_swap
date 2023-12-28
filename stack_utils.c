@@ -38,7 +38,10 @@ t_node	*find_min_value(t_stack *stack)
 	t_node	*min_value_node;
 
 	min_value = MAX_INTEGER;
+	min_value_node = NULL;
 	current_node = stack->begin;
+	if (stack->begin == NULL) 
+    	return NULL;
 	while (current_node)
 	{
 		if (current_node->value < min_value)
@@ -60,7 +63,10 @@ t_node	*find_max_value(t_stack *stack)
 	long	max_value;
 
 	max_value = MIN_INTEGER;
+	max_value_node = NULL;
 	current_node = stack->begin;
+	if (stack->begin == NULL)
+    	return NULL;
 	while (current_node)
 	{
 		if (current_node->value > max_value)

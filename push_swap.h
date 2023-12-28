@@ -50,13 +50,13 @@ long				ft_custom_atoi(const char *nptr);
 
 // Operations
 
-void				swap(t_stack *stack, char stack_name);
-void				ss(t_stack *a, t_stack *b);
-void				push(t_stack *src, t_stack *dest, char stack_name);
-void				rotate(t_stack *stack, char stack_name);
-void				rr(t_stack *a, t_stack *b);
-void				reverse_rotate(t_stack *stack, char stack_name);
-void				rrr(t_stack *a, t_stack *b);
+void				swap(t_stack **stack, char stack_name);
+void				ss(t_stack **a, t_stack **b);
+void				push(t_stack **src, t_stack **dest, char stack_name);
+void				rotate(t_stack **stack, char stack_name);
+void				rr(t_stack **a, t_stack **b);
+void				reverse_rotate(t_stack **stack, char stack_name);
+void				rrr(t_stack **a, t_stack **b);
 
 // Stacks
 t_stack				*create_stack(void);
@@ -75,7 +75,7 @@ t_node				*find_max_value(t_stack *node);
 void				tiny_sort(t_stack **a);
 void				current_position(t_stack *stack);
 void				set_target_node(t_stack *a, t_stack *b);
-void				init_nodes(t_stack *a, t_stack *b);
+void	init_nodes(t_stack **a, t_stack **b);
 void 				print_target_nodes(t_stack *b);
 void				set_price(t_stack *a, t_stack *b);
 void			rotate_both(t_stack **a, t_stack **b, t_node *cheapest_node);

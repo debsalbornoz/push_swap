@@ -43,5 +43,5 @@ void	rrr(t_stack **a, t_stack **b)
 {
 	reverse_rotate(a, 'r');
 	reverse_rotate(b, 'r');
-	ft_printf("rr\n");
+	ft_printf("rrr\n");
 }

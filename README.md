@@ -4,10 +4,13 @@
 <img src="https://github.com/debsalbornoz/push_swap/assets/119970138/9f579a43-3c59-4020-b57e-e464e80880fd">
 </div> 
 <div align="center">
-<img alt="Static Badge" src="https://img.shields.io/badge/in_progress-orange">
+<img alt="Static Badge" src="https://img.shields.io/badge/Status-Finished-green">
 </div>
 
-# Push Swap
+[pshhh.webm](https://github.com/user-attachments/assets/dff23ac6-0189-4d67-a216-4fcf791724ec)
+
+
+## Push Swap
 
 
 ## Descrição

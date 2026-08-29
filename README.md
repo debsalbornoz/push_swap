@@ -1,75 +1,91 @@
-<h1 align="center"> Push_swap</h1>
+<h1 align="center">Push_swap</h1>
 
 <div align="center">
 <img src="https://github.com/debsalbornoz/push_swap/assets/119970138/9f579a43-3c59-4020-b57e-e464e80880fd">
-</div> 
+</div>
+
 <div align="center">
 <img alt="Static Badge" src="https://img.shields.io/badge/Status-Finished-green">
+<img alt="Static Badge" src="https://img.shields.io/badge/42-Project-blue">
+<img alt="Static Badge" src="https://img.shields.io/badge/Language-C-lightgrey">
 </div>
+
+## Demo
 
 [pshhh.webm](https://github.com/user-attachments/assets/dff23ac6-0189-4d67-a216-4fcf791724ec)
 
+## Description
 
-## Push Swap
+**Push_swap** is a project focused on sorting a stack of integers using two stacks and a limited set of basic operations. The goal is to sort the original stack using the smallest possible number of operations.
 
+The project implements an efficient approach to solving the problem, taking into account the complexity of the operations and the need for optimization.
 
-## Descrição
+## Table of Contents
 
+- [How It Works](#how-it-works)
+  - [Sorting Small Stacks](#sorting-small-stacks)
+- [Rules](#rules)
+- [Installation & Build](#installation--build)
 
-O **Push Swap** é um projeto que visa ordenar uma pilha de números inteiros utilizando duas pilhas e um conjunto de operações básicas. O objetivo é ordenar a pilha original com o menor número possível de operações.
-O projeto implementa uma abordagem eficiente para resolver o problema, levando em consideração a complexidade das operações e a necessidade de otimização.
+## How It Works
 
+The program starts with two stacks, `a` and `b`. Stack `a` receives the program's arguments in the order they were passed, while `b` starts empty. The sorting algorithm is split into several interdependent steps, described below:
 
-## Funcionamento
+1. **Position setup**
 
+    Each node in the stack is assigned a current position and a flag indicating whether it's above or below the stack's median. This helps determine which nodes are the "highest priority" to move first.
 
-O projeto é inicializado com duas pilhas, `a` e `b`, `a` recebe os argumentos do programa na ordem em que foram passados e `b` não recebe nada.  O algoritmo para ordenar a pilha é dividido em várias etapas interdependentes, descritas a seguir:
+2. **Target node definition**
 
+    For each node in stack `b`, the algorithm determines the best node in stack `a` to be its "target." The target is the smallest value in `a` that's still larger than the node in `b`. If no such value exists, the target is the smallest node in `a`.
 
-1. **Configuração das Posições**:
-   - Cada nó na pilha é atribuído uma posição atual e uma indicação se está acima ou abaixo da mediana da pilha. Isso ajuda a decidir quais nós são mais "importantes" para serem movidos primeiro.
+3. **Move cost calculation**
 
-2. **Definição do Nó-Alvo**:
-   - Para cada nó na pilha `b`, o algoritmo determina o melhor nó na pilha `a` para ser o "alvo" desse nó. O alvo é o menor maior nó da pilha `b`. Se não há tal nó, o alvo é o menor nó da pilha `a`.
+    Each node in stack `b` is assigned a "cost" representing the total number of operations needed to move it into stack `a`. This cost is based on the node's current position in `b` and its target's position in `a`, taking into account whether the node is above or below the median — which affects the cheapest way to move it.
 
-3. **Cálculo dos Preços de Movimentação**:
-   - A cada nó na pilha `b` é atribuído um "preço" que representa o custo total de operações para movê-lo para a pilha `a`. Este preço é baseado na posição atual do nó na pilha `b` e na posição do nó alvo na pilha `a`. O cálculo leva em conta se o nó está acima ou abaixo da mediana, influenciando o custo de movimentação.
+4. **Cheapest node selection**
 
-4. **Identificação do Nó Mais Barato**:
-   - Entre todos os nós na pilha `b`, é identificado aquele com o menor preço de movimentação. Esse nó é marcado como o mais barato e é o próximo a ser movido.
+    Among all nodes in stack `b`, the one with the lowest move cost is identified. That node is marked as the cheapest and is the next one to be moved.
 
-Esse processo é repetido até que todos os nós estejam ordenados na pilha `a`.
+This process repeats until every node has been sorted into stack `a`.
 
-### Ordenação de Pilhas Pequenas
+### Sorting Small Stacks
 
-- Para pilhas pequenas, uma função específica realiza a ordenação com um conjunto básico de operações:
-  - **Rotate**: Rotaciona a pilha para cima, movendo o primeiro elemento para o final.
-  - **Reverse Rotate**: Rotaciona a pilha para baixo, movendo o último elemento para o início.
-  - **Swap**: Troca os dois primeiros elementos da pilha.
+For small stacks, a dedicated function performs the sort using a basic set of operations:
 
-Estas operações são utilizadas para ajustar a pilha de forma a aproximá-la da ordenação desejada.
+- **Rotate** — rotates the stack upward, moving the first element to the bottom.
+- **Reverse Rotate** — rotates the stack downward, moving the last element to the top.
+- **Swap** — swaps the top two elements of the stack.
 
-## Regras
+These operations are used to nudge the stack progressively closer to the desired order.
 
-- **Regras**:
-  - Utilizar apenas as operações básicas: `push`, `swap`, `rotate`, e `reverse rotate`.
-  - A ordenação deve ser eficiente, minimizando o número total de operações.
+## Rules
 
-## Instalação e Compilação
+- Only the basic operations may be used: `push`, `swap`, `rotate`, and `reverse rotate`.
+- The sort must be efficient, minimizing the total number of operations.
 
-Para começar a trabalhar com o projeto, clone o repositório para o seu ambiente local utilizando o comando:
+## Installation & Build
 
+1. Clone the repository:
 
-```
-git clone https://github.com/debsalbornoz/push_swap.git
-```
+    ```bash
+    git clone https://github.com/debsalbornoz/push_swap.git
+    ```
 
-Após clonar o repositório, acesse o diretório do projeto:
+2. Move into the project directory:
 
-```
-cd push_swap
+    ```bash
+    cd push_swap
+    ```
 
-```
+3. Make sure a C compiler and the other required tools are installed on your system, then build the project:
 
-Certifique-se de que o compilador C e outras ferramentas necessárias estão instalados no seu sistema. Compile o projeto usando o comando "make". Isso irá compilar o código-fonte e gerar o executável do projeto.
+    ```bash
+    make
+    ```
 
+    This compiles the source code and generates the project's executable.
+
+---
+
+<p align="center">Built as part of the 42 curriculum 🖥️</p>
